@@ -10,11 +10,127 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as CleaningSuppliesRouteImport } from './routes/cleaning-supplies'
+import { Route as ClientsRouteImport } from './routes/clients'
+import { Route as CompanyPoliciesRouteImport } from './routes/company-policies'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CorporateCleaningRouteImport } from './routes/corporate-cleaning'
+import { Route as EventCleaningRouteImport } from './routes/event-cleaning'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as HygieneEducationRouteImport } from './routes/hygiene-education'
+import { Route as IndustrialFacilitySupportRouteImport } from './routes/industrial-facility-support'
+import { Route as JanitorialStaffingRouteImport } from './routes/janitorial-staffing'
+import { Route as PostConstructionCleaningRouteImport } from './routes/post-construction-cleaning'
+import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as RequestAQuoteRouteImport } from './routes/request-a-quote'
+import { Route as ResidentialCleaningRouteImport } from './routes/residential-cleaning'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as TeamRouteImport } from './routes/team'
+import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as ApiPublicEnquiriesRouteImport } from './routes/api/public/enquiries'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CleaningSuppliesRoute = CleaningSuppliesRouteImport.update({
+  id: '/cleaning-supplies',
+  path: '/cleaning-supplies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClientsRoute = ClientsRouteImport.update({
+  id: '/clients',
+  path: '/clients',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompanyPoliciesRoute = CompanyPoliciesRouteImport.update({
+  id: '/company-policies',
+  path: '/company-policies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CorporateCleaningRoute = CorporateCleaningRouteImport.update({
+  id: '/corporate-cleaning',
+  path: '/corporate-cleaning',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventCleaningRoute = EventCleaningRouteImport.update({
+  id: '/event-cleaning',
+  path: '/event-cleaning',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HygieneEducationRoute = HygieneEducationRouteImport.update({
+  id: '/hygiene-education',
+  path: '/hygiene-education',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustrialFacilitySupportRoute =
+  IndustrialFacilitySupportRouteImport.update({
+    id: '/industrial-facility-support',
+    path: '/industrial-facility-support',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const JanitorialStaffingRoute = JanitorialStaffingRouteImport.update({
+  id: '/janitorial-staffing',
+  path: '/janitorial-staffing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PostConstructionCleaningRoute =
+  PostConstructionCleaningRouteImport.update({
+    id: '/post-construction-cleaning',
+    path: '/post-construction-cleaning',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RequestAQuoteRoute = RequestAQuoteRouteImport.update({
+  id: '/request-a-quote',
+  path: '/request-a-quote',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResidentialCleaningRoute = ResidentialCleaningRouteImport.update({
+  id: '/residential-cleaning',
+  path: '/residential-cleaning',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamRoute = TeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TestimonialsRoute = TestimonialsRouteImport.update({
+  id: '/testimonials',
+  path: '/testimonials',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiPublicEnquiriesRoute = ApiPublicEnquiriesRouteImport.update({
@@ -25,27 +141,167 @@ const ApiPublicEnquiriesRoute = ApiPublicEnquiriesRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
+  '/cleaning-supplies': typeof CleaningSuppliesRoute
+  '/clients': typeof ClientsRoute
+  '/company-policies': typeof CompanyPoliciesRoute
+  '/contact': typeof ContactRoute
+  '/corporate-cleaning': typeof CorporateCleaningRoute
+  '/event-cleaning': typeof EventCleaningRoute
+  '/faq': typeof FaqRoute
+  '/hygiene-education': typeof HygieneEducationRoute
+  '/industrial-facility-support': typeof IndustrialFacilitySupportRoute
+  '/janitorial-staffing': typeof JanitorialStaffingRoute
+  '/post-construction-cleaning': typeof PostConstructionCleaningRoute
+  '/projects': typeof ProjectsRoute
+  '/request-a-quote': typeof RequestAQuoteRoute
+  '/residential-cleaning': typeof ResidentialCleaningRoute
+  '/services': typeof ServicesRoute
+  '/team': typeof TeamRoute
+  '/testimonials': typeof TestimonialsRoute
   '/api/public/enquiries': typeof ApiPublicEnquiriesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
+  '/cleaning-supplies': typeof CleaningSuppliesRoute
+  '/clients': typeof ClientsRoute
+  '/company-policies': typeof CompanyPoliciesRoute
+  '/contact': typeof ContactRoute
+  '/corporate-cleaning': typeof CorporateCleaningRoute
+  '/event-cleaning': typeof EventCleaningRoute
+  '/faq': typeof FaqRoute
+  '/hygiene-education': typeof HygieneEducationRoute
+  '/industrial-facility-support': typeof IndustrialFacilitySupportRoute
+  '/janitorial-staffing': typeof JanitorialStaffingRoute
+  '/post-construction-cleaning': typeof PostConstructionCleaningRoute
+  '/projects': typeof ProjectsRoute
+  '/request-a-quote': typeof RequestAQuoteRoute
+  '/residential-cleaning': typeof ResidentialCleaningRoute
+  '/services': typeof ServicesRoute
+  '/team': typeof TeamRoute
+  '/testimonials': typeof TestimonialsRoute
   '/api/public/enquiries': typeof ApiPublicEnquiriesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
+  '/cleaning-supplies': typeof CleaningSuppliesRoute
+  '/clients': typeof ClientsRoute
+  '/company-policies': typeof CompanyPoliciesRoute
+  '/contact': typeof ContactRoute
+  '/corporate-cleaning': typeof CorporateCleaningRoute
+  '/event-cleaning': typeof EventCleaningRoute
+  '/faq': typeof FaqRoute
+  '/hygiene-education': typeof HygieneEducationRoute
+  '/industrial-facility-support': typeof IndustrialFacilitySupportRoute
+  '/janitorial-staffing': typeof JanitorialStaffingRoute
+  '/post-construction-cleaning': typeof PostConstructionCleaningRoute
+  '/projects': typeof ProjectsRoute
+  '/request-a-quote': typeof RequestAQuoteRoute
+  '/residential-cleaning': typeof ResidentialCleaningRoute
+  '/services': typeof ServicesRoute
+  '/team': typeof TeamRoute
+  '/testimonials': typeof TestimonialsRoute
   '/api/public/enquiries': typeof ApiPublicEnquiriesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/public/enquiries'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/blog'
+    | '/cleaning-supplies'
+    | '/clients'
+    | '/company-policies'
+    | '/contact'
+    | '/corporate-cleaning'
+    | '/event-cleaning'
+    | '/faq'
+    | '/hygiene-education'
+    | '/industrial-facility-support'
+    | '/janitorial-staffing'
+    | '/post-construction-cleaning'
+    | '/projects'
+    | '/request-a-quote'
+    | '/residential-cleaning'
+    | '/services'
+    | '/team'
+    | '/testimonials'
+    | '/api/public/enquiries'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/public/enquiries'
-  id: '__root__' | '/' | '/api/public/enquiries'
+  to:
+    | '/'
+    | '/about'
+    | '/blog'
+    | '/cleaning-supplies'
+    | '/clients'
+    | '/company-policies'
+    | '/contact'
+    | '/corporate-cleaning'
+    | '/event-cleaning'
+    | '/faq'
+    | '/hygiene-education'
+    | '/industrial-facility-support'
+    | '/janitorial-staffing'
+    | '/post-construction-cleaning'
+    | '/projects'
+    | '/request-a-quote'
+    | '/residential-cleaning'
+    | '/services'
+    | '/team'
+    | '/testimonials'
+    | '/api/public/enquiries'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/blog'
+    | '/cleaning-supplies'
+    | '/clients'
+    | '/company-policies'
+    | '/contact'
+    | '/corporate-cleaning'
+    | '/event-cleaning'
+    | '/faq'
+    | '/hygiene-education'
+    | '/industrial-facility-support'
+    | '/janitorial-staffing'
+    | '/post-construction-cleaning'
+    | '/projects'
+    | '/request-a-quote'
+    | '/residential-cleaning'
+    | '/services'
+    | '/team'
+    | '/testimonials'
+    | '/api/public/enquiries'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  BlogRoute: typeof BlogRoute
+  CleaningSuppliesRoute: typeof CleaningSuppliesRoute
+  ClientsRoute: typeof ClientsRoute
+  CompanyPoliciesRoute: typeof CompanyPoliciesRoute
+  ContactRoute: typeof ContactRoute
+  CorporateCleaningRoute: typeof CorporateCleaningRoute
+  EventCleaningRoute: typeof EventCleaningRoute
+  FaqRoute: typeof FaqRoute
+  HygieneEducationRoute: typeof HygieneEducationRoute
+  IndustrialFacilitySupportRoute: typeof IndustrialFacilitySupportRoute
+  JanitorialStaffingRoute: typeof JanitorialStaffingRoute
+  PostConstructionCleaningRoute: typeof PostConstructionCleaningRoute
+  ProjectsRoute: typeof ProjectsRoute
+  RequestAQuoteRoute: typeof RequestAQuoteRoute
+  ResidentialCleaningRoute: typeof ResidentialCleaningRoute
+  ServicesRoute: typeof ServicesRoute
+  TeamRoute: typeof TeamRoute
+  TestimonialsRoute: typeof TestimonialsRoute
   ApiPublicEnquiriesRoute: typeof ApiPublicEnquiriesRoute
 }
 
@@ -56,6 +312,139 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cleaning-supplies': {
+      id: '/cleaning-supplies'
+      path: '/cleaning-supplies'
+      fullPath: '/cleaning-supplies'
+      preLoaderRoute: typeof CleaningSuppliesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/clients': {
+      id: '/clients'
+      path: '/clients'
+      fullPath: '/clients'
+      preLoaderRoute: typeof ClientsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/company-policies': {
+      id: '/company-policies'
+      path: '/company-policies'
+      fullPath: '/company-policies'
+      preLoaderRoute: typeof CompanyPoliciesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/corporate-cleaning': {
+      id: '/corporate-cleaning'
+      path: '/corporate-cleaning'
+      fullPath: '/corporate-cleaning'
+      preLoaderRoute: typeof CorporateCleaningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/event-cleaning': {
+      id: '/event-cleaning'
+      path: '/event-cleaning'
+      fullPath: '/event-cleaning'
+      preLoaderRoute: typeof EventCleaningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hygiene-education': {
+      id: '/hygiene-education'
+      path: '/hygiene-education'
+      fullPath: '/hygiene-education'
+      preLoaderRoute: typeof HygieneEducationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industrial-facility-support': {
+      id: '/industrial-facility-support'
+      path: '/industrial-facility-support'
+      fullPath: '/industrial-facility-support'
+      preLoaderRoute: typeof IndustrialFacilitySupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/janitorial-staffing': {
+      id: '/janitorial-staffing'
+      path: '/janitorial-staffing'
+      fullPath: '/janitorial-staffing'
+      preLoaderRoute: typeof JanitorialStaffingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/post-construction-cleaning': {
+      id: '/post-construction-cleaning'
+      path: '/post-construction-cleaning'
+      fullPath: '/post-construction-cleaning'
+      preLoaderRoute: typeof PostConstructionCleaningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/request-a-quote': {
+      id: '/request-a-quote'
+      path: '/request-a-quote'
+      fullPath: '/request-a-quote'
+      preLoaderRoute: typeof RequestAQuoteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/residential-cleaning': {
+      id: '/residential-cleaning'
+      path: '/residential-cleaning'
+      fullPath: '/residential-cleaning'
+      preLoaderRoute: typeof ResidentialCleaningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/team': {
+      id: '/team'
+      path: '/team'
+      fullPath: '/team'
+      preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/testimonials': {
+      id: '/testimonials'
+      path: '/testimonials'
+      fullPath: '/testimonials'
+      preLoaderRoute: typeof TestimonialsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/public/enquiries': {
@@ -70,6 +459,25 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  BlogRoute: BlogRoute,
+  CleaningSuppliesRoute: CleaningSuppliesRoute,
+  ClientsRoute: ClientsRoute,
+  CompanyPoliciesRoute: CompanyPoliciesRoute,
+  ContactRoute: ContactRoute,
+  CorporateCleaningRoute: CorporateCleaningRoute,
+  EventCleaningRoute: EventCleaningRoute,
+  FaqRoute: FaqRoute,
+  HygieneEducationRoute: HygieneEducationRoute,
+  IndustrialFacilitySupportRoute: IndustrialFacilitySupportRoute,
+  JanitorialStaffingRoute: JanitorialStaffingRoute,
+  PostConstructionCleaningRoute: PostConstructionCleaningRoute,
+  ProjectsRoute: ProjectsRoute,
+  RequestAQuoteRoute: RequestAQuoteRoute,
+  ResidentialCleaningRoute: ResidentialCleaningRoute,
+  ServicesRoute: ServicesRoute,
+  TeamRoute: TeamRoute,
+  TestimonialsRoute: TestimonialsRoute,
   ApiPublicEnquiriesRoute: ApiPublicEnquiriesRoute,
 }
 export const routeTree = rootRouteImport

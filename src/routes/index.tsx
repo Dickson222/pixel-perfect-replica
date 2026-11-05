@@ -7,7 +7,7 @@ import {
   ChevronRight,
   GraduationCap,
   HardHat,
-  Home,
+  Home as HomeIcon,
   Users,
 } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
@@ -588,7 +588,7 @@ function Home() {
                 </a>
               </p>
               <p>
-                <Home className="mr-1.5 inline h-4 w-4" />
+                <HomeIcon className="mr-1.5 inline h-4 w-4" />
                 {COMPANY.addressLine1} {COMPANY.addressLine2}
               </p>
             </div>
