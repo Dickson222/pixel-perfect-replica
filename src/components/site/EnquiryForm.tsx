@@ -6,7 +6,8 @@ import { WhatsAppSvg } from "./shared";
 const inputClass =
   "w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/70 focus:border-brand-azure focus:outline-none focus:ring-2 focus:ring-brand-azure/25";
 
-const labelClass = "mb-1.5 block font-heading text-xs font-semibold uppercase tracking-wide text-brand-navy";
+const labelClass =
+  "mb-1.5 block font-heading text-xs font-semibold uppercase tracking-wide text-brand-navy";
 
 function Field({
   label,
@@ -89,12 +90,12 @@ export function EnquiryForm({
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "failed">("idle");
   const [serverError, setServerError] = useState("");
 
-  const set = (key: keyof Values) => (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
-  ) => {
-    setValues((v) => ({ ...v, [key]: e.target.value }));
-    setErrors((er) => ({ ...er, [key]: undefined }));
-  };
+  const set =
+    (key: keyof Values) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+      setValues((v) => ({ ...v, [key]: e.target.value }));
+      setErrors((er) => ({ ...er, [key]: undefined }));
+    };
 
   function validate(): boolean {
     const er: Partial<Record<keyof Values, string>> = {};
@@ -114,34 +115,49 @@ export function EnquiryForm({
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
     if (!validate()) return;
+
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+    if (!accessKey) {
+      setStatus("failed");
+      setServerError(
+        "The enquiry form is not configured yet. Please contact us by phone or WhatsApp.",
+      );
+      return;
+    }
+
     setStatus("sending");
     setServerError("");
     try {
-      const res = await fetch("/api/public/enquiries", {
+      const email = values.email.trim();
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
-          kind,
-          fullName: values.fullName.trim(),
+          access_key: accessKey,
+          subject: `${kind === "corporate" ? "Corporate enquiry" : kind === "contact" ? "Contact message" : "Quote request"} from ${values.fullName.trim()}`,
+          from_name: values.fullName.trim(),
+          ...(email ? { email } : {}),
           phone: values.phone.trim(),
-          email: values.email.trim(),
-          serviceType: values.serviceType.trim(),
-          propertyType: values.propertyType.trim(),
-          propertySize: values.propertySize.trim(),
-          personnelCount: values.personnelCount.trim(),
-          preferredDate: values.preferredDate,
+          kind,
+          service_type: values.serviceType.trim(),
+          property_type: values.propertyType.trim(),
+          property_size: values.propertySize.trim(),
+          personnel_count: values.personnelCount.trim(),
+          preferred_date: values.preferredDate,
           frequency: values.frequency,
           organisation: values.organisation.trim(),
-          facilityLocation: values.address.trim(),
-          message: values.message.trim(),
+          facility_location: values.address.trim(),
+          message: values.message.trim() || "No additional message provided.",
         }),
       });
-      const data = (await res.json().catch(() => null)) as { ok?: boolean; error?: string } | null;
-      if (res.ok && data?.ok) {
+      const data = (await res.json()) as { success?: boolean; message?: string };
+      if (res.ok && data.success) {
         setStatus("sent");
       } else {
         setStatus("failed");
-        setServerError(data?.error || "Something went wrong while sending your request. Please try again.");
+        setServerError(
+          data.message || "Something went wrong while sending your request. Please try again.",
+        );
       }
     } catch {
       setStatus("failed");
@@ -157,10 +173,9 @@ export function EnquiryForm({
           Request received for review
         </h3>
         <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
-          Thank you, {values.fullName.split(" ")[0]}. Your request has been submitted
-          successfully and our team will contact you to discuss your requirements and
-          confirm arrangements. Please note that a quotation request is not a confirmed
-          booking.
+          Thank you, {values.fullName.split(" ")[0]}. Your request has been submitted successfully
+          and our team will contact you to discuss your requirements and confirm arrangements.
+          Please note that a quotation request is not a confirmed booking.
         </p>
         <p className="mt-4 text-sm text-muted-foreground">
           Need a faster response?{" "}
@@ -173,7 +188,10 @@ export function EnquiryForm({
             Chat with us on WhatsApp
           </a>{" "}
           or call{" "}
-          <a href={`tel:${COMPANY.phoneTel}`} className="font-semibold text-brand-azure hover:underline">
+          <a
+            href={`tel:${COMPANY.phoneTel}`}
+            className="font-semibold text-brand-azure hover:underline"
+          >
             {COMPANY.phoneDisplay}
           </a>
           .
@@ -220,7 +238,11 @@ export function EnquiryForm({
         {kind === "quote" && (
           <>
             <Field label="Type of cleaning service required" required error={errors.serviceType}>
-              <select className={inputClass} value={values.serviceType} onChange={set("serviceType")}>
+              <select
+                className={inputClass}
+                value={values.serviceType}
+                onChange={set("serviceType")}
+              >
                 <option value="">Select a service…</option>
                 {serviceOptions.map((t) => (
                   <option key={t} value={t}>
@@ -230,7 +252,11 @@ export function EnquiryForm({
               </select>
             </Field>
             <Field label="Property type">
-              <select className={inputClass} value={values.propertyType} onChange={set("propertyType")}>
+              <select
+                className={inputClass}
+                value={values.propertyType}
+                onChange={set("propertyType")}
+              >
                 <option value="">Select property type…</option>
                 {PROPERTY_TYPES.map((t) => (
                   <option key={t} value={t}>
@@ -304,7 +330,11 @@ export function EnquiryForm({
               />
             </Field>
             <Field label="Service requirements">
-              <select className={inputClass} value={values.serviceType} onChange={set("serviceType")}>
+              <select
+                className={inputClass}
+                value={values.serviceType}
+                onChange={set("serviceType")}
+              >
                 <option value="">Select a service…</option>
                 {serviceOptions.map((t) => (
                   <option key={t} value={t}>
@@ -371,7 +401,11 @@ export function EnquiryForm({
           ) : (
             <>
               <Send className="h-4 w-4" />
-              {kind === "corporate" ? "Submit Corporate Enquiry" : kind === "contact" ? "Send Message" : "Submit Request"}
+              {kind === "corporate"
+                ? "Submit Corporate Enquiry"
+                : kind === "contact"
+                  ? "Send Message"
+                  : "Submit Request"}
             </>
           )}
         </button>
@@ -386,9 +420,9 @@ export function EnquiryForm({
         </a>
       </div>
       <p className="text-xs leading-relaxed text-muted-foreground">
-        Submitting this form sends your request to {COMPANY.name} for review. We will
-        contact you to discuss requirements and confirm arrangements. A quotation request
-        is not a confirmed booking.
+        Submitting this form sends your request to {COMPANY.name} for review. We will contact you to
+        discuss requirements and confirm arrangements. A quotation request is not a confirmed
+        booking.
       </p>
     </form>
   );

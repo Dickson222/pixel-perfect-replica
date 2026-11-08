@@ -32,7 +32,10 @@ export const Route = createFileRoute("/")({
         content:
           "Professional cleaning and facility support company in Lagos, Nigeria — corporate cleaning, residential cleaning, janitorial staffing, post-construction cleaning and more. Request a quote today.",
       },
-      { property: "og:title", content: "Blossom Cleaning Services | Professional Cleaning Company in Lagos" },
+      {
+        property: "og:title",
+        content: "Blossom Cleaning Services | Professional Cleaning Company in Lagos",
+      },
       {
         property: "og:description",
         content:
@@ -104,25 +107,30 @@ function Home() {
   return (
     <SiteLayout>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-brand-navy">
-        <img
-          src={photoLobby.url}
-          alt="Blossom Cleaning Services team member mopping a commercial lobby floor"
-          className="absolute inset-0 h-full w-full object-cover opacity-30"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/90 to-brand-navy/50" />
-        <div className="container-page relative py-20 md:py-32">
-          <p className="eyebrow fade-up text-brand-gold">
-            {COMPANY.name} · Lagos, Nigeria
-          </p>
+      <section className="relative min-h-[34rem] overflow-hidden bg-brand-navy md:min-h-[42rem]">
+        <video
+          className="absolute inset-0 z-0 h-full w-full scale-125 object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/images/cleaner-mopping.jpeg"
+          aria-hidden="true"
+        >
+          <source src="/videos/hero-background.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-brand-navy/60 via-brand-navy/25 to-transparent" />
+        <div className="container-page relative z-20 py-20 md:py-32">
+          <p className="eyebrow fade-up text-brand-gold">{COMPANY.name} · Lagos, Nigeria</p>
           <h1 className="fade-up mt-4 max-w-4xl font-display text-4xl font-bold leading-[1.15] text-white md:text-6xl">
             Professional Cleaning. Reliable Facility Support.{" "}
             <span className="text-brand-gold">Excellence in Every Space.</span>
           </h1>
           <p className="fade-up mt-6 max-w-2xl text-base leading-relaxed text-white/85 md:text-lg">
             From corporate offices and residential estates to large-scale facilities and
-            post-construction projects, Blossom Cleaning Services delivers structured,
-            reliable and professional cleaning solutions tailored to your environment.
+            post-construction projects, Blossom Cleaning Services delivers structured, reliable and
+            professional cleaning solutions tailored to your environment.
           </p>
           <div className="fade-up mt-8 flex flex-wrap gap-3">
             <Link
@@ -154,16 +162,16 @@ function Home() {
               title="A professional cleaning and facility support company built on structure"
             />
             <p className="mt-5 text-sm leading-relaxed text-muted-foreground md:text-base">
-              {COMPANY.name} is a professional cleaning and facilities support company
-              based in Lagos, Nigeria. Established in {COMPANY.established} and integrated
-              into {COMPANY.parent} in {COMPANY.integrated}, we specialise in delivering
-              structured cleaning solutions, janitorial staffing and facility support
-              services across residential, commercial and high-traffic environments.
+              {COMPANY.name} is a professional cleaning and facilities support company based in
+              Lagos, Nigeria. Established in {COMPANY.established} and integrated into{" "}
+              {COMPANY.parent} in {COMPANY.integrated}, we specialise in delivering structured
+              cleaning solutions, janitorial staffing and facility support services across
+              residential, commercial and high-traffic environments.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
-              Our operations are built around trained personnel, effective supervision,
-              operational efficiency and quality assurance — so our clients receive
-              reliable, consistent service delivery every time.
+              Our operations are built around trained personnel, effective supervision, operational
+              efficiency and quality assurance — so our clients receive reliable, consistent service
+              delivery every time.
             </p>
             <Link
               to="/about"
@@ -175,12 +183,12 @@ function Home() {
           </div>
           <div className="grid grid-cols-2 gap-4">
             <img
-              src={photoVacuum.url}
+              src="/images/cleaner-vacuuming.jpeg"
               alt="Blossom Cleaning Services professional vacuuming an office floor"
               className="h-64 w-full rounded-xl object-cover shadow-md md:h-80"
             />
             <img
-              src={teamGroup.url}
+              src="/images/team-group.jpeg"
               alt="The Blossom Cleaning Services team"
               className="mt-8 h-64 w-full rounded-xl object-cover shadow-md md:h-80"
             />
@@ -203,9 +211,7 @@ function Home() {
                 to={`/${s.slug}`}
                 className="group flex flex-col rounded-xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
               >
-                <span className="font-heading text-xs font-bold text-brand-bronze">
-                  0{i + 1}
-                </span>
+                <span className="font-heading text-xs font-bold text-brand-bronze">0{i + 1}</span>
                 <h3 className="mt-3 font-heading text-base font-semibold text-brand-navy">
                   {s.title}
                 </h3>
@@ -226,7 +232,7 @@ function Home() {
       <section className="py-16 md:py-24">
         <div className="container-page grid items-center gap-10 lg:grid-cols-2">
           <img
-            src={photoLobby.url}
+            src="/images/cleaner-mopping.jpeg"
             alt="Professional cleaning of a corporate lobby in Lagos"
             className="h-80 w-full rounded-xl object-cover shadow-lg lg:h-[26rem]"
           />
@@ -236,11 +242,11 @@ function Home() {
               Cleaning operations for corporate organisations and commercial facilities
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
-              Corporate and commercial cleaning is at the heart of our business. We work
-              with real estate companies, property managers, corporate offices, hotels,
-              schools, event centres, construction and property development companies, and
-              facility management organisations — delivering structured cleaning
-              operations with on-site supervision and quality assurance.
+              Corporate and commercial cleaning is at the heart of our business. We work with real
+              estate companies, property managers, corporate offices, hotels, schools, event
+              centres, construction and property development companies, and facility management
+              organisations — delivering structured cleaning operations with on-site supervision and
+              quality assurance.
             </p>
             <ul className="mt-5 space-y-2.5">
               {[
@@ -278,7 +284,7 @@ function Home() {
         <div className="container-page grid gap-8 md:grid-cols-2">
           <div className="overflow-hidden rounded-xl bg-card shadow-md">
             <img
-              src={photoDeepClean.url}
+              src="/images/photo-deep-clean.jpg"
               alt="Detailed deep cleaning of a living room in a Lagos home"
               className="h-56 w-full object-cover"
             />
@@ -287,9 +293,9 @@ function Home() {
                 Residential Cleaning
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                Homes, apartments and residential estates cleaned to a professional
-                standard — deep cleaning, move-in and move-out, carpet and upholstery
-                care, and regular maintenance cleaning.
+                Homes, apartments and residential estates cleaned to a professional standard — deep
+                cleaning, move-in and move-out, carpet and upholstery care, and regular maintenance
+                cleaning.
               </p>
               <Link
                 to="/residential-cleaning"
@@ -302,7 +308,7 @@ function Home() {
           </div>
           <div className="overflow-hidden rounded-xl bg-card shadow-md">
             <img
-              src={photoTvConsole.url}
+              src="/images/photo-tv-console.webp"
               alt="Detail-focused cleaning of a TV console and shelving"
               className="h-56 w-full object-cover"
             />
@@ -311,9 +317,9 @@ function Home() {
                 Janitorial Staffing &amp; Facility Support
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                Trained, supervised cleaning personnel deployed to your facility on
-                shifts that fit your operation — with structured reporting and backup
-                personnel for service continuity.
+                Trained, supervised cleaning personnel deployed to your facility on shifts that fit
+                your operation — with structured reporting and backup personnel for service
+                continuity.
               </p>
               <Link
                 to="/janitorial-staffing"
@@ -324,6 +330,24 @@ function Home() {
               </Link>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Secondary autoplay video */}
+      <section className="py-10 md:py-14">
+        <div className="container-page">
+          <video
+            className="aspect-video w-full rounded-xl bg-brand-navy object-cover shadow-lg"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster={photoDeepClean.url}
+            aria-label="Blossom Cleaning Services promotional video"
+          >
+            <source src="/videos/cleaning-services.mp4" type="video/mp4" />
+          </video>
         </div>
       </section>
 
@@ -433,12 +457,32 @@ function Home() {
           </div>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { src: photoLobby.url, alt: "Lobby mopping during a commercial cleaning operation", label: "Commercial Cleaning" },
-              { src: photoDeepClean.url, alt: "Deep cleaning of a residential living room", label: "Deep Cleaning" },
-              { src: photoVacuum.url, alt: "Vacuum cleaning of office flooring", label: "Office Cleaning" },
-              { src: photoTvConsole.url, alt: "Detailed cleaning of home shelving and console", label: "Residential Detail Cleaning" },
+              {
+                src: "/images/cleaner-mopping.jpeg",
+                alt: "Blossom cleaner mopping a commercial floor",
+                label: "Commercial Cleaning",
+              },
+              {
+                src: "/images/cleaner-equipment.jpeg",
+                alt: "Blossom cleaner using professional floor-cleaning equipment",
+                label: "Floor Care",
+              },
+              {
+                src: "/images/cleaner-vacuuming.jpeg",
+                alt: "Blossom cleaner vacuuming a floor",
+                label: "Equipment Cleaning",
+              },
+              {
+                src: "/images/detail-cleaning.jpeg",
+                alt: "Blossom cleaner wiping a wooden console",
+                label: "Detail Cleaning",
+              },
             ].map((p) => (
-              <Link key={p.src} to="/projects" className="group overflow-hidden rounded-xl shadow-sm">
+              <Link
+                key={p.src}
+                to="/projects"
+                className="group overflow-hidden rounded-xl shadow-sm"
+              >
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
                     src={p.src}
@@ -464,9 +508,9 @@ function Home() {
               title="Quality checked. Safely delivered."
             />
             <p className="mt-5 text-sm leading-relaxed text-muted-foreground md:text-base">
-              Quality is not an accident — it is supervised. Every Blossom engagement runs
-              on routine supervision and inspection processes, carried out by personnel
-              trained to work safely and effectively.
+              Quality is not an accident — it is supervised. Every Blossom engagement runs on
+              routine supervision and inspection processes, carried out by personnel trained to work
+              safely and effectively.
             </p>
             <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
               {[
@@ -483,7 +527,7 @@ function Home() {
             </ul>
           </div>
           <img
-            src={teamGroup.url}
+            src="/images/team-group.jpeg"
             alt="Blossom Cleaning Services team members standing together"
             className="h-72 w-full rounded-xl object-cover shadow-lg lg:h-96"
           />
@@ -570,20 +614,26 @@ function Home() {
               Get a cleaning estimate tailored to your space
             </h2>
             <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/80 md:text-base">
-              Our pricing is customised to the nature of the service, the size of the
-              property, workforce requirements, frequency and project scope. Tell us
-              about your space and our team will prepare a tailored quotation.
+              Our pricing is customised to the nature of the service, the size of the property,
+              workforce requirements, frequency and project scope. Tell us about your space and our
+              team will prepare a tailored quotation.
             </p>
             <div className="mt-6 space-y-2 text-sm text-white/80">
               <p>
                 Call us:{" "}
-                <a href={`tel:${COMPANY.phoneTel}`} className="font-semibold text-brand-gold hover:underline">
+                <a
+                  href={`tel:${COMPANY.phoneTel}`}
+                  className="font-semibold text-brand-gold hover:underline"
+                >
                   {COMPANY.phoneDisplay}
                 </a>
               </p>
               <p>
                 Email:{" "}
-                <a href={`mailto:${COMPANY.email}`} className="font-semibold text-brand-gold hover:underline">
+                <a
+                  href={`mailto:${COMPANY.email}`}
+                  className="font-semibold text-brand-gold hover:underline"
+                >
                   {COMPANY.email}
                 </a>
               </p>

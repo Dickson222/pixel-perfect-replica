@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { COMPANY, NAV_LINKS, SERVICE_PAGES } from "@/lib/site";
-import logoMain from "@/assets/blossom-logo-main.png.asset.json";
 import { SocialIcons } from "./SocialIcons";
 
 export function Footer() {
@@ -11,14 +10,14 @@ export function Footer() {
         <div>
           <div className="inline-block rounded-lg bg-white p-3">
             <img
-              src={logoMain.url}
+              src="/blossom-logo-mark.png"
               alt="Blossom Cleaning Services logo"
               className="h-24 w-auto"
             />
           </div>
           <p className="mt-5 max-w-sm text-sm leading-relaxed">
-            A professional cleaning and facilities support company in Lagos, Nigeria,
-            and a division of {COMPANY.parent}. {COMPANY.positioning}
+            A professional cleaning and facilities support company in Lagos, Nigeria, and a division
+            of {COMPANY.parent}. {COMPANY.positioning}
           </p>
           <p className="mt-4 font-heading text-sm font-semibold uppercase tracking-wider text-brand-gold">
             {COMPANY.tagline}
