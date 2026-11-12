@@ -84,6 +84,13 @@ export const SERVICE_PAGES: ServiceRef[] = [
 /** Full service catalogue, including services without a dedicated page. */
 export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
   {
+    slug: "residential-commercial-cleaning",
+    title: "Residential and Commercial Cleaning Services",
+    blurb:
+      "Professional cleaning for homes, apartments, offices and commercial premises, with the scope and schedule tailored to each property's requirements.",
+    page: "residential-cleaning",
+  },
+  {
     slug: "commercial-corporate-cleaning",
     title: "Commercial & Corporate Cleaning",
     blurb:
@@ -118,7 +125,7 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
   },
   {
     slug: "janitorial-staffing",
-    title: "Janitorial Staffing",
+    title: "Janitorial Staffing and Workforce Management",
     blurb:
       "We provide well-vetted, professionally trained janitorial staff for offices, commercial buildings, healthcare facilities, schools and other institutions, supporting clean, safe and hygienic environments.",
     image: "/images/team-group.jpeg",
@@ -133,14 +140,14 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
   },
   {
     slug: "deep-cleaning-sanitization",
-    title: "Deep Cleaning & Sanitization",
+    title: "Deep Cleaning Services",
     blurb:
       "Thorough, detail-focused cleaning and sanitization of spaces that need more than routine care.",
     page: "residential-cleaning",
   },
   {
     slug: "post-construction-cleaning",
-    title: "Post-Construction & Post-Renovation Cleaning",
+    title: "Post-Construction and Post-Renovation Cleaning Services",
     blurb:
       "Removal of construction dust and debris, and detailed finishing cleaning for completed projects.",
     page: "post-construction-cleaning",
@@ -153,7 +160,7 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
   },
   {
     slug: "carpet-upholstery-cleaning",
-    title: "Sofa & Upholstery Cleaning",
+    title: "Sofa and Upholstery Cleaning Services",
     blurb:
       "Professional cleaning to remove dirt, stains, odours and allergens from sofas, chairs and upholstered furniture.",
     image: "/images/cleaner-vacuuming.jpeg",
@@ -161,7 +168,7 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
   },
   {
     slug: "rug-carpet-cleaning",
-    title: "Rug & Carpet Cleaning",
+    title: "Carpet and Rug Cleaning Services",
     blurb:
       "Professional cleaning solutions that restore freshness, remove dirt and improve carpet and rug hygiene.",
     image: "/images/cleaner-equipment.jpeg",
@@ -169,7 +176,7 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
   },
   {
     slug: "special-maintenance-packages",
-    title: "Special Maintenance Packages",
+    title: "Weekly / Monthly Maintenance Cleaning Services",
     blurb:
       "Standard, Premium and Executive maintenance packages are available weekly or monthly. Contact us to discuss your requirements.",
     image: "/images/cleaner-mopping.jpeg",
@@ -181,6 +188,12 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     blurb:
       "Scheduled daily, weekly or custom-frequency cleaning that keeps spaces consistently presentable.",
     page: "corporate-cleaning",
+  },
+  {
+    slug: "interlock-exterior-surface-washing",
+    title: "Interlock and Exterior Surface Washing",
+    blurb:
+      "Exterior washing for interlock paving and other hard outdoor surfaces to remove surface dirt and improve cleanliness.",
   },
   {
     slug: "event-cleaning",
@@ -203,14 +216,14 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
   },
   {
     slug: "hygiene-education",
-    title: "Environmental & Hygiene Education",
+    title: "Environmental Hygiene Education, Awareness Campaigns, and Sanitation Advocacy",
     blurb:
-      "Hygiene awareness and environmental responsibility education for organisations and communities.",
+      "Environmental hygiene education, awareness campaigns and sanitation advocacy for organisations and communities.",
     page: "hygiene-education",
   },
   {
     slug: "janitorial-training",
-    title: "Janitorial Training",
+    title: "Janitorial Training and Workforce Development",
     blurb:
       "Professional training for cleaning personnel, covering cleaning procedures, hygiene practices, equipment handling, safety and workplace professionalism.",
     image: "/images/team-training.jpeg",
@@ -222,6 +235,7 @@ export const SERVICE_CATEGORIES = [
   {
     label: "Commercial & Industrial",
     services: [
+      "residential-commercial-cleaning",
       "commercial-corporate-cleaning",
       "office-cleaning",
       "industrial-cleaning",
@@ -238,16 +252,21 @@ export const SERVICE_CATEGORIES = [
       "deep-cleaning-sanitization",
       "move-in-move-out-cleaning",
       "carpet-upholstery-cleaning",
+      "rug-carpet-cleaning",
+      "special-maintenance-packages",
+      "routine-maintenance-cleaning",
     ],
   },
   {
     label: "Projects, Events & Support",
     services: [
       "post-construction-cleaning",
+      "interlock-exterior-surface-washing",
       "event-cleaning",
       "cleaning-supplies",
       "cleaning-equipment-supply",
       "hygiene-education",
+      "janitorial-training",
     ],
   },
 ] as const;

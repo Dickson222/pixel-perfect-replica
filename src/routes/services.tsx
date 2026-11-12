@@ -19,6 +19,7 @@ const serviceCategories = [
     icon: Building2,
     services: ALL_SERVICES.filter((item) =>
       [
+        "residential-commercial-cleaning",
         "commercial-corporate-cleaning",
         "office-cleaning",
         "industrial-cleaning",
@@ -49,6 +50,7 @@ const serviceCategories = [
     services: ALL_SERVICES.filter((item) =>
       [
         "post-construction-cleaning",
+        "interlock-exterior-surface-washing",
         "event-cleaning",
         "cleaning-supplies",
         "cleaning-equipment-supply",
@@ -60,6 +62,7 @@ const serviceCategories = [
 ];
 
 const serviceIcons: Record<string, typeof Building2> = {
+  "residential-commercial-cleaning": Building2,
   "commercial-corporate-cleaning": Building2,
   "office-cleaning": Building2,
   "industrial-cleaning": Factory,
@@ -75,6 +78,7 @@ const serviceIcons: Record<string, typeof Building2> = {
   "carpet-upholstery-cleaning": Sparkles,
   "rug-carpet-cleaning": Sparkles,
   "post-construction-cleaning": Wrench,
+  "interlock-exterior-surface-washing": Wrench,
   "event-cleaning": Sparkles,
   "cleaning-supplies": Warehouse,
   "cleaning-equipment-supply": Wrench,
@@ -88,7 +92,7 @@ export const Route = createFileRoute("/services")({
       {
         name: "description",
         content:
-          "Explore Blossom Cleaning Services solutions for office cleaning, residential cleaning, janitorial staffing, post-construction cleaning, event cleaning, industrial facility support and supply services in Lagos, Nigeria.",
+          "Explore Blossom Cleaning Services for janitorial staffing and workforce management, residential and commercial cleaning, deep cleaning, maintenance, post-construction cleaning, upholstery and carpet cleaning, exterior washing, janitorial training and hygiene education in Lagos.",
       },
     ],
   }),
@@ -101,7 +105,7 @@ function ServicesPage() {
       <PageHero
         eyebrow="Our Services"
         title="Structured cleaning solutions for homes, organisations, facilities and projects"
-        intro="Blossom Cleaning Services supports residential, commercial and industrial environments with practical cleaning, facility support and workforce solutions designed around the way each client actually operates."
+        intro="Our services include janitorial staffing and workforce management, residential and commercial cleaning, deep and scheduled maintenance cleaning, post-construction cleaning, specialist surface and upholstery cleaning, janitorial training and environmental hygiene education."
       />
 
       <section className="py-16 md:py-24">
