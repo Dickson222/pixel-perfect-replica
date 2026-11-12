@@ -183,12 +183,12 @@ function Home() {
           </div>
           <div className="grid grid-cols-2 gap-4">
             <img
-              src="/images/cleaner-vacuuming.jpeg"
+              src="/images/image.png"
               alt="Blossom Cleaning Services professional vacuuming an office floor"
               className="h-64 w-full rounded-xl object-cover shadow-md md:h-80"
             />
             <img
-              src="/images/team-group.jpeg"
+              src="/images/man.jpeg"
               alt="The Blossom Cleaning Services team"
               className="mt-8 h-64 w-full rounded-xl object-cover shadow-md md:h-80"
             />
@@ -333,21 +333,42 @@ function Home() {
         </div>
       </section>
 
-      {/* Secondary autoplay video */}
-      <section className="py-10 md:py-14">
+      {/* Service videos */}
+      <section className="bg-muted/40 py-16 md:py-20">
         <div className="container-page">
-          <video
-            className="aspect-video w-full rounded-xl bg-brand-navy object-cover shadow-lg"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            poster={photoDeepClean.url}
-            aria-label="Blossom Cleaning Services promotional video"
-          >
-            <source src="/videos/cleaning-services.mp4" type="video/mp4" />
-          </video>
+          <SectionHeading
+            eyebrow="Our Work"
+            title="Professional Cleaning in Motion"
+            intro="Explore Blossom Cleaning Services through these videos."
+            align="center"
+          />
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {[
+              {
+                src: "/videos/cleaning-service-1.mp4",
+                poster: photoDeepClean.url,
+                label: "Blossom Cleaning Services video 1",
+              },
+              {
+                src: "/videos/cleaning-service-2.mp4",
+                poster: photoVacuum.url,
+                label: "Blossom Cleaning Services video 2",
+              },
+            ].map((video) => (
+              <video
+                key={video.src}
+                className="aspect-video w-full rounded-xl bg-brand-navy object-cover shadow-lg"
+                controls
+                playsInline
+                preload="metadata"
+                poster={video.poster}
+                aria-label={video.label}
+              >
+                <source src={video.src} type="video/mp4" />
+                Your browser does not support video playback.
+              </video>
+            ))}
+          </div>
         </div>
       </section>
 

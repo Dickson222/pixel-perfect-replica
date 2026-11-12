@@ -44,16 +44,16 @@ function ProjectsPage() {
     <SiteLayout>
       <PageHero
         eyebrow="Projects & Our Work"
-        title="Selected work across residential, commercial and project-based cleaning"
-        intro="The company’s portfolio reflects the practical work done across homes, offices, facilities and project spaces."
+        title="Professional Cleaning. Proven Standards. Exceptional Results."
+        intro="Blossom Cleaning Services delivers professional cleaning and facility support solutions across residential, commercial, schools, hospitals and clinics, hospitality and post-construction environments in Lagos."
       />
 
       <section className="py-16 md:py-24">
         <div className="container-page">
           <SectionHeading
             eyebrow="Portfolio"
-            title="Examples of our cleaning work"
-            intro="Project-specific details are kept general where exact case study information was not provided, so the focus stays on the actual work and the value of the service."
+            title="Structured cleaning for different environments"
+            intro="We provide structured cleaning solutions tailored to different property requirements, hygiene standards and operational demands. The images below show cleaning work without identifying clients or implying unsupported project claims."
           />
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {projectGallery.map((item) => (
@@ -100,6 +100,44 @@ function ProjectsPage() {
               >
                 {category}
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20">
+        <div className="container-page">
+          <SectionHeading
+            eyebrow="Video Gallery"
+            title="Cleaning in Motion"
+            intro="Explore Blossom Cleaning Services through these videos."
+            align="center"
+          />
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {[
+              {
+                src: "/videos/cleaning-service-1.mp4",
+                poster: "/images/photo-deep-clean.jpg",
+                label: "Blossom Cleaning Services video 1",
+              },
+              {
+                src: "/videos/cleaning-service-2.mp4",
+                poster: "/images/cleaner-vacuuming.jpeg",
+                label: "Blossom Cleaning Services video 2",
+              },
+            ].map((video) => (
+              <video
+                key={video.src}
+                className="aspect-video w-full rounded-xl bg-brand-navy object-cover shadow-lg"
+                controls
+                playsInline
+                preload="metadata"
+                poster={video.poster}
+                aria-label={video.label}
+              >
+                <source src={video.src} type="video/mp4" />
+                Your browser does not support video playback.
+              </video>
             ))}
           </div>
         </div>

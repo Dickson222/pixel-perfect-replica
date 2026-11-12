@@ -1,8 +1,7 @@
 export const COMPANY = {
   name: "Blossom Cleaning Services",
   parent: "Blossom Global Multilinks Limited",
-  positioning:
-    "Your Trusted Partner for Professional Cleaning and Facility Support Solutions.",
+  positioning: "Your Trusted Partner for Professional Cleaning and Facility Support Solutions.",
   tagline: "Consistently Delivering Excellence.",
   phoneDisplay: "0802 582 9223",
   phoneTel: "+2348025829223",
@@ -27,6 +26,7 @@ export type ServiceRef = {
   slug: string;
   title: string;
   blurb: string;
+  image?: string;
 };
 
 /** The nine dedicated service pages. */
@@ -100,15 +100,13 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
   {
     slug: "residential-cleaning",
     title: "Residential Cleaning",
-    blurb:
-      "Homes, apartments and residential estates cleaned to a professional standard.",
+    blurb: "Homes, apartments and residential estates cleaned to a professional standard.",
     page: "residential-cleaning",
   },
   {
     slug: "estate-cleaning",
     title: "Estate Cleaning",
-    blurb:
-      "Cleaning services for residential estates, shared spaces and property developments.",
+    blurb: "Cleaning services for residential estates, shared spaces and property developments.",
     page: "residential-cleaning",
   },
   {
@@ -120,9 +118,10 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
   },
   {
     slug: "janitorial-staffing",
-    title: "Janitorial Staffing & Workforce Management",
+    title: "Janitorial Staffing",
     blurb:
-      "Dedicated, trained and supervised janitorial personnel deployed to client facilities.",
+      "We provide well-vetted, professionally trained janitorial staff for offices, commercial buildings, healthcare facilities, schools and other institutions, supporting clean, safe and hygienic environments.",
+    image: "/images/team-group.jpeg",
     page: "janitorial-staffing",
   },
   {
@@ -149,16 +148,32 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
   {
     slug: "move-in-move-out-cleaning",
     title: "Move-In / Move-Out Cleaning",
-    blurb:
-      "Fresh starts for new occupants and spotless handovers when tenants or owners move out.",
+    blurb: "Fresh starts for new occupants and spotless handovers when tenants or owners move out.",
     page: "residential-cleaning",
   },
   {
     slug: "carpet-upholstery-cleaning",
-    title: "Carpet & Upholstery Cleaning",
+    title: "Sofa & Upholstery Cleaning",
     blurb:
-      "Care for carpets, rugs and upholstered furniture in homes and commercial spaces.",
+      "Professional cleaning to remove dirt, stains, odours and allergens from sofas, chairs and upholstered furniture.",
+    image: "/images/cleaner-vacuuming.jpeg",
     page: "residential-cleaning",
+  },
+  {
+    slug: "rug-carpet-cleaning",
+    title: "Rug & Carpet Cleaning",
+    blurb:
+      "Professional cleaning solutions that restore freshness, remove dirt and improve carpet and rug hygiene.",
+    image: "/images/cleaner-equipment.jpeg",
+    page: "residential-cleaning",
+  },
+  {
+    slug: "special-maintenance-packages",
+    title: "Special Maintenance Packages",
+    blurb:
+      "Standard, Premium and Executive maintenance packages are available weekly or monthly. Contact us to discuss your requirements.",
+    image: "/images/cleaner-mopping.jpeg",
+    page: "corporate-cleaning",
   },
   {
     slug: "routine-maintenance-cleaning",
@@ -170,15 +185,13 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
   {
     slug: "event-cleaning",
     title: "Event & Exhibition Cleaning",
-    blurb:
-      "Pre-event, during-event and post-event cleaning for venues, exhibitions and events.",
+    blurb: "Pre-event, during-event and post-event cleaning for venues, exhibitions and events.",
     page: "event-cleaning",
   },
   {
     slug: "cleaning-supplies",
     title: "Cleaning Chemicals & Consumables Supply",
-    blurb:
-      "Supply of professional cleaning chemicals and consumables for homes and businesses.",
+    blurb: "Supply of professional cleaning chemicals and consumables for homes and businesses.",
     page: "cleaning-supplies",
   },
   {
@@ -194,6 +207,14 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     blurb:
       "Hygiene awareness and environmental responsibility education for organisations and communities.",
     page: "hygiene-education",
+  },
+  {
+    slug: "janitorial-training",
+    title: "Janitorial Training",
+    blurb:
+      "Professional training for cleaning personnel, covering cleaning procedures, hygiene practices, equipment handling, safety and workplace professionalism.",
+    image: "/images/team-training.jpeg",
+    page: "services",
   },
 ];
 
