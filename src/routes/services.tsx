@@ -2,6 +2,7 @@ import {
   ArrowRight,
   Building2,
   Factory,
+  GraduationCap,
   Home,
   Sparkles,
   Users,
@@ -14,6 +15,13 @@ import { PageHero, SectionHeading } from "@/components/site/shared";
 import { ALL_SERVICES } from "@/lib/site";
 
 const serviceCategories = [
+  {
+    label: "Training & Hygiene",
+    icon: GraduationCap,
+    services: ALL_SERVICES.filter((item) =>
+      ["janitorial-training", "hygiene-education"].includes(item.slug),
+    ),
+  },
   {
     label: "Commercial & Industrial",
     icon: Building2,
@@ -54,8 +62,6 @@ const serviceCategories = [
         "event-cleaning",
         "cleaning-supplies",
         "cleaning-equipment-supply",
-        "hygiene-education",
-        "janitorial-training",
       ].includes(item.slug),
     ),
   },
