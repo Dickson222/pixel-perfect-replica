@@ -183,13 +183,13 @@ function Home() {
           </div>
           <div className="grid grid-cols-2 gap-4">
             <img
-              src="/images/cleaner-vacuuming.jpeg"
-              alt="Blossom Cleaning Services professional vacuuming an office floor"
+              src="/images/cleaning-professional-portrait.png"
+              alt="Blossom Cleaning Services team member in uniform"
               className="h-64 w-full rounded-xl object-cover shadow-md md:h-80"
             />
             <img
-              src="/images/team-group.jpeg"
-              alt="The Blossom Cleaning Services team"
+              src="/images/staff-using-cleaning-equipment.jpeg"
+              alt="Blossom Cleaning Services team member using cleaning equipment"
               className="mt-8 h-64 w-full rounded-xl object-cover shadow-md md:h-80"
             />
           </div>
