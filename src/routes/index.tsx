@@ -118,7 +118,7 @@ function Home() {
           poster="/images/cleaner-mopping.jpeg"
           aria-hidden="true"
         >
-          <source src="/videos/hero-background.mp4" type="video/mp4" />
+          <source src="/videos/blossom-cleaning-showcase.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 z-10 bg-gradient-to-r from-brand-navy/60 via-brand-navy/25 to-transparent" />
         <div className="container-page relative z-20 py-20 md:py-32">
@@ -342,17 +342,12 @@ function Home() {
             intro="Explore Blossom Cleaning Services through these videos."
             align="center"
           />
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
+          <div className="mx-auto mt-10 max-w-3xl">
             {[
               {
-                src: "/videos/cleaning-service-1.mp4",
+                src: "/videos/blossom-cleaning-showcase.mp4",
                 poster: photoDeepClean.url,
-                label: "Blossom Cleaning Services video 1",
-              },
-              {
-                src: "/videos/cleaning-service-2.mp4",
-                poster: photoVacuum.url,
-                label: "Blossom Cleaning Services video 2",
+                label: "Blossom Cleaning Services showcase video",
               },
             ].map((video) => (
               <video

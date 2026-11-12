@@ -113,17 +113,12 @@ function ProjectsPage() {
             intro="Explore Blossom Cleaning Services through these videos."
             align="center"
           />
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
+          <div className="mx-auto mt-10 max-w-3xl">
             {[
               {
-                src: "/videos/cleaning-service-1.mp4",
+                src: "/videos/blossom-cleaning-showcase.mp4",
                 poster: "/images/photo-deep-clean.jpg",
-                label: "Blossom Cleaning Services video 1",
-              },
-              {
-                src: "/videos/cleaning-service-2.mp4",
-                poster: "/images/cleaner-vacuuming.jpeg",
-                label: "Blossom Cleaning Services video 2",
+                label: "Blossom Cleaning Services showcase video",
               },
             ].map((video) => (
               <video
