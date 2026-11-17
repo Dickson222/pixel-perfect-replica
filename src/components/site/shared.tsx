@@ -114,7 +114,9 @@ export function SectionHeading({
     <div className={align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
       <p className="eyebrow text-brand-bronze">{eyebrow}</p>
       <h2 className="mt-2 font-display text-2xl font-bold text-brand-navy md:text-3xl">{title}</h2>
-      {intro && <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">{intro}</p>}
+      {intro && (
+        <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">{intro}</p>
+      )}
     </div>
   );
 }

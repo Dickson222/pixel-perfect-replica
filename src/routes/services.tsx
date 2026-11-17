@@ -1,4 +1,14 @@
-import { ArrowRight, Building2, Factory, Home, Sparkles, Users, Wrench, Warehouse } from "lucide-react";
+import {
+  ArrowRight,
+  Building2,
+  Factory,
+  GraduationCap,
+  Home,
+  Sparkles,
+  Users,
+  Wrench,
+  Warehouse,
+} from "lucide-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero, SectionHeading } from "@/components/site/shared";
@@ -6,34 +16,66 @@ import { ALL_SERVICES } from "@/lib/site";
 
 const serviceCategories = [
   {
+    label: "Training & Hygiene",
+    icon: GraduationCap,
+    services: ALL_SERVICES.filter((item) =>
+      ["janitorial-training", "hygiene-education"].includes(item.slug),
+    ),
+  },
+  {
     label: "Commercial & Industrial",
     icon: Building2,
     services: ALL_SERVICES.filter((item) =>
-      ["commercial-corporate-cleaning", "office-cleaning", "industrial-cleaning", "janitorial-staffing", "facility-support", "routine-maintenance-cleaning"].includes(item.slug),
+      [
+        "residential-commercial-cleaning",
+        "commercial-corporate-cleaning",
+        "office-cleaning",
+        "industrial-cleaning",
+        "janitorial-staffing",
+        "facility-support",
+        "routine-maintenance-cleaning",
+        "special-maintenance-packages",
+      ].includes(item.slug),
     ),
   },
   {
     label: "Residential",
     icon: Home,
     services: ALL_SERVICES.filter((item) =>
-      ["residential-cleaning", "estate-cleaning", "deep-cleaning-sanitization", "move-in-move-out-cleaning", "carpet-upholstery-cleaning", "rug-carpet-cleaning"].includes(item.slug),
+      [
+        "residential-cleaning",
+        "estate-cleaning",
+        "deep-cleaning-sanitization",
+        "move-in-move-out-cleaning",
+        "carpet-upholstery-cleaning",
+        "rug-carpet-cleaning",
+      ].includes(item.slug),
     ),
   },
   {
     label: "Projects, Events & Support",
     icon: Sparkles,
     services: ALL_SERVICES.filter((item) =>
-      ["post-construction-cleaning", "event-cleaning", "cleaning-supplies", "cleaning-equipment-supply", "hygiene-education"].includes(item.slug),
+      [
+        "post-construction-cleaning",
+        "interlock-exterior-surface-washing",
+        "event-cleaning",
+        "cleaning-supplies",
+        "cleaning-equipment-supply",
+      ].includes(item.slug),
     ),
   },
 ];
 
 const serviceIcons: Record<string, typeof Building2> = {
+  "residential-commercial-cleaning": Building2,
   "commercial-corporate-cleaning": Building2,
   "office-cleaning": Building2,
   "industrial-cleaning": Factory,
   "janitorial-staffing": Users,
+  "janitorial-training": Users,
   "facility-support": Warehouse,
+  "special-maintenance-packages": Wrench,
   "routine-maintenance-cleaning": Wrench,
   "residential-cleaning": Home,
   "estate-cleaning": Home,
@@ -42,6 +84,7 @@ const serviceIcons: Record<string, typeof Building2> = {
   "carpet-upholstery-cleaning": Sparkles,
   "rug-carpet-cleaning": Sparkles,
   "post-construction-cleaning": Wrench,
+  "interlock-exterior-surface-washing": Wrench,
   "event-cleaning": Sparkles,
   "cleaning-supplies": Warehouse,
   "cleaning-equipment-supply": Wrench,
@@ -55,7 +98,7 @@ export const Route = createFileRoute("/services")({
       {
         name: "description",
         content:
-          "Explore Blossom Cleaning Services solutions for office cleaning, residential cleaning, janitorial staffing, post-construction cleaning, event cleaning, industrial facility support and supply services in Lagos, Nigeria.",
+          "Explore Blossom Cleaning Services for janitorial staffing and workforce management, residential and commercial cleaning, deep cleaning, maintenance, post-construction cleaning, upholstery and carpet cleaning, exterior washing, janitorial training and hygiene education in Lagos.",
       },
     ],
   }),
@@ -68,7 +111,7 @@ function ServicesPage() {
       <PageHero
         eyebrow="Our Services"
         title="Structured cleaning solutions for homes, organisations, facilities and projects"
-        intro="Blossom Cleaning Services supports residential, commercial and industrial environments with practical cleaning, facility support and workforce solutions designed around the way each client actually operates."
+        intro="Our services include janitorial staffing and workforce management, residential and commercial cleaning, deep and scheduled maintenance cleaning, post-construction cleaning, specialist surface and upholstery cleaning, janitorial training and environmental hygiene education."
       />
 
       <section className="py-16 md:py-24">
@@ -88,7 +131,10 @@ function ServicesPage() {
                     const ItemIcon = serviceIcons[service.slug] ?? Sparkles;
                     const pageLink = service.page ? `/${service.page}` : "/services";
                     return (
-                      <div key={service.slug} className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+                      <div
+                        key={service.slug}
+                        className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm"
+                      >
                         {service.image && (
                           <img
                             src={service.image}
@@ -100,9 +146,16 @@ function ServicesPage() {
                           <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-brand-gold-soft">
                             <ItemIcon className="h-5 w-5 text-brand-navy" />
                           </div>
-                          <h3 className="mt-4 font-heading text-lg font-semibold text-brand-navy">{service.title}</h3>
-                          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{service.blurb}</p>
-                          <Link to={pageLink} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-azure hover:underline">
+                          <h3 className="mt-4 font-heading text-lg font-semibold text-brand-navy">
+                            {service.title}
+                          </h3>
+                          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                            {service.blurb}
+                          </p>
+                          <Link
+                            to={pageLink}
+                            className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-azure hover:underline"
+                          >
                             Learn more
                             <ArrowRight className="h-4 w-4" />
                           </Link>

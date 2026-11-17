@@ -1,0 +1,5 @@
+- [ ] Add the supplied optimized video to the homepage header.
+- [ ] Place the existing Blossom team and training photos in relevant sections.
+- [ ] Replace the enquiry submission backend with direct Web3Forms delivery while preserving fields.
+- [ ] Repair service/blog links and confirm the preview builds and key interactions work.
+- [ ] Note that the second video is unavailable and was not added.

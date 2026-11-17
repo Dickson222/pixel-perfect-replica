@@ -6,7 +6,8 @@ import { WhatsAppSvg } from "./shared";
 const inputClass =
   "w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/70 focus:border-brand-azure focus:outline-none focus:ring-2 focus:ring-brand-azure/25";
 
-const labelClass = "mb-1.5 block font-heading text-xs font-semibold uppercase tracking-wide text-brand-navy";
+const labelClass =
+  "mb-1.5 block font-heading text-xs font-semibold uppercase tracking-wide text-brand-navy";
 
 function Field({
   label,
@@ -89,12 +90,12 @@ export function EnquiryForm({
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "failed">("idle");
   const [serverError, setServerError] = useState("");
 
-  const set = (key: keyof Values) => (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
-  ) => {
-    setValues((v) => ({ ...v, [key]: e.target.value }));
-    setErrors((er) => ({ ...er, [key]: undefined }));
-  };
+  const set =
+    (key: keyof Values) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+      setValues((v) => ({ ...v, [key]: e.target.value }));
+      setErrors((er) => ({ ...er, [key]: undefined }));
+    };
 
   function validate(): boolean {
     const er: Partial<Record<keyof Values, string>> = {};
@@ -200,10 +201,9 @@ export function EnquiryForm({
           Request received for review
         </h3>
         <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
-          Thank you, {values.fullName.split(" ")[0]}. Your request has been submitted
-          successfully and our team will contact you to discuss your requirements and
-          confirm arrangements. Please note that a quotation request is not a confirmed
-          booking.
+          Thank you, {values.fullName.split(" ")[0]}. Your request has been submitted successfully
+          and our team will contact you to discuss your requirements and confirm arrangements.
+          Please note that a quotation request is not a confirmed booking.
         </p>
         <p className="mt-4 text-sm text-muted-foreground">
           Need a faster response?{" "}
@@ -216,7 +216,10 @@ export function EnquiryForm({
             Chat with us on WhatsApp
           </a>{" "}
           or call{" "}
-          <a href={`tel:${COMPANY.phoneTel}`} className="font-semibold text-brand-azure hover:underline">
+          <a
+            href={`tel:${COMPANY.phoneTel}`}
+            className="font-semibold text-brand-azure hover:underline"
+          >
             {COMPANY.phoneDisplay}
           </a>
           .
@@ -263,7 +266,11 @@ export function EnquiryForm({
         {kind === "quote" && (
           <>
             <Field label="Type of cleaning service required" required error={errors.serviceType}>
-              <select className={inputClass} value={values.serviceType} onChange={set("serviceType")}>
+              <select
+                className={inputClass}
+                value={values.serviceType}
+                onChange={set("serviceType")}
+              >
                 <option value="">Select a service…</option>
                 {serviceOptions.map((t) => (
                   <option key={t} value={t}>
@@ -273,7 +280,11 @@ export function EnquiryForm({
               </select>
             </Field>
             <Field label="Property type">
-              <select className={inputClass} value={values.propertyType} onChange={set("propertyType")}>
+              <select
+                className={inputClass}
+                value={values.propertyType}
+                onChange={set("propertyType")}
+              >
                 <option value="">Select property type…</option>
                 {PROPERTY_TYPES.map((t) => (
                   <option key={t} value={t}>
@@ -347,7 +358,11 @@ export function EnquiryForm({
               />
             </Field>
             <Field label="Service requirements">
-              <select className={inputClass} value={values.serviceType} onChange={set("serviceType")}>
+              <select
+                className={inputClass}
+                value={values.serviceType}
+                onChange={set("serviceType")}
+              >
                 <option value="">Select a service…</option>
                 {serviceOptions.map((t) => (
                   <option key={t} value={t}>
@@ -414,7 +429,11 @@ export function EnquiryForm({
           ) : (
             <>
               <Send className="h-4 w-4" />
-              {kind === "corporate" ? "Submit Corporate Enquiry" : kind === "contact" ? "Send Message" : "Submit Request"}
+              {kind === "corporate"
+                ? "Submit Corporate Enquiry"
+                : kind === "contact"
+                  ? "Send Message"
+                  : "Submit Request"}
             </>
           )}
         </button>
@@ -429,9 +448,9 @@ export function EnquiryForm({
         </a>
       </div>
       <p className="text-xs leading-relaxed text-muted-foreground">
-        Submitting this form sends your request to {COMPANY.name} for review. We will
-        contact you to discuss requirements and confirm arrangements. A quotation request
-        is not a confirmed booking.
+        Submitting this form sends your request to {COMPANY.name} for review. We will contact you to
+        discuss requirements and confirm arrangements. A quotation request is not a confirmed
+        booking.
       </p>
     </form>
   );

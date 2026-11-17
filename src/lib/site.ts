@@ -1,8 +1,7 @@
 export const COMPANY = {
   name: "Blossom Cleaning Services",
   parent: "Blossom Global Multilinks Limited",
-  positioning:
-    "Your Trusted Partner for Professional Cleaning and Facility Support Solutions.",
+  positioning: "Your Trusted Partner for Professional Cleaning and Facility Support Solutions.",
   tagline: "Consistently Delivering Excellence.",
   phoneDisplay: "0802 582 9223",
   phoneTel: "+2348025829223",
@@ -85,6 +84,13 @@ export const SERVICE_PAGES: ServiceRef[] = [
 /** Full service catalogue, including services without a dedicated page. */
 export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
   {
+    slug: "residential-commercial-cleaning",
+    title: "Residential and Commercial Cleaning Services",
+    blurb:
+      "Professional cleaning for homes, apartments, offices and commercial premises, with the scope and schedule tailored to each property's requirements.",
+    page: "residential-cleaning",
+  },
+  {
     slug: "commercial-corporate-cleaning",
     title: "Commercial & Corporate Cleaning",
     blurb:
@@ -101,15 +107,13 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
   {
     slug: "residential-cleaning",
     title: "Residential Cleaning",
-    blurb:
-      "Homes, apartments and residential estates cleaned to a professional standard.",
+    blurb: "Homes, apartments and residential estates cleaned to a professional standard.",
     page: "residential-cleaning",
   },
   {
     slug: "estate-cleaning",
     title: "Estate Cleaning",
-    blurb:
-      "Cleaning services for residential estates, shared spaces and property developments.",
+    blurb: "Cleaning services for residential estates, shared spaces and property developments.",
     page: "residential-cleaning",
   },
   {
@@ -121,9 +125,9 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
   },
   {
     slug: "janitorial-staffing",
-    title: "Janitorial Staffing & Workforce Management",
+    title: "Janitorial Staffing and Workforce Management",
     blurb:
-      "Dedicated, trained and supervised janitorial personnel deployed to client facilities.",
+      "We provide well-vetted, professionally trained janitorial staff for offices, commercial buildings, healthcare facilities, schools and other institutions, supporting clean, safe and hygienic environments.",
     image: "/images/janitorial-staffing.jpeg",
     page: "janitorial-staffing",
   },
@@ -136,7 +140,7 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
   },
   {
     slug: "deep-cleaning-sanitization",
-    title: "Deep Cleaning & Sanitization",
+    title: "Deep Cleaning Services",
     blurb:
       "Thorough, detail-focused cleaning and sanitization of spaces that need more than routine care.",
     image: "/images/deep-cleaning.jpeg",
@@ -144,7 +148,7 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
   },
   {
     slug: "post-construction-cleaning",
-    title: "Post-Construction & Post-Renovation Cleaning",
+    title: "Post-Construction and Post-Renovation Cleaning Services",
     blurb:
       "Removal of construction dust and debris, and detailed finishing cleaning for completed projects.",
     page: "post-construction-cleaning",
@@ -152,8 +156,7 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
   {
     slug: "move-in-move-out-cleaning",
     title: "Move-In / Move-Out Cleaning",
-    blurb:
-      "Fresh starts for new occupants and spotless handovers when tenants or owners move out.",
+    blurb: "Fresh starts for new occupants and spotless handovers when tenants or owners move out.",
     page: "residential-cleaning",
   },
   {
@@ -166,11 +169,19 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
   },
   {
     slug: "rug-carpet-cleaning",
-    title: "Rug & Carpet Cleaning",
+    title: "Carpet and Rug Cleaning Services",
     blurb:
       "Professional cleaning solutions that restore freshness, remove dirt and improve carpet and rug hygiene.",
     image: "/images/rug-and-hosterly-cleaning.jpeg",
     page: "residential-cleaning",
+  },
+  {
+    slug: "special-maintenance-packages",
+    title: "Weekly / Monthly Maintenance Cleaning Services",
+    blurb:
+      "Standard, Premium and Executive maintenance packages are available weekly or monthly. Contact us to discuss your requirements.",
+    image: "/images/cleaner-mopping.jpeg",
+    page: "corporate-cleaning",
   },
   {
     slug: "routine-maintenance-cleaning",
@@ -180,17 +191,21 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     page: "corporate-cleaning",
   },
   {
+    slug: "interlock-exterior-surface-washing",
+    title: "Interlock and Exterior Surface Washing",
+    blurb:
+      "Exterior washing for interlock paving and other hard outdoor surfaces to remove surface dirt and improve cleanliness.",
+  },
+  {
     slug: "event-cleaning",
     title: "Event & Exhibition Cleaning",
-    blurb:
-      "Pre-event, during-event and post-event cleaning for venues, exhibitions and events.",
+    blurb: "Pre-event, during-event and post-event cleaning for venues, exhibitions and events.",
     page: "event-cleaning",
   },
   {
     slug: "cleaning-supplies",
     title: "Cleaning Chemicals & Consumables Supply",
-    blurb:
-      "Supply of professional cleaning chemicals and consumables for homes and businesses.",
+    blurb: "Supply of professional cleaning chemicals and consumables for homes and businesses.",
     page: "cleaning-supplies",
   },
   {
@@ -202,10 +217,18 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
   },
   {
     slug: "hygiene-education",
-    title: "Environmental & Hygiene Education",
+    title: "Environmental Hygiene Education, Awareness Campaigns, and Sanitation Advocacy",
     blurb:
-      "Hygiene awareness and environmental responsibility education for organisations and communities.",
+      "Environmental hygiene education, awareness campaigns and sanitation advocacy for organisations and communities.",
     page: "hygiene-education",
+  },
+  {
+    slug: "janitorial-training",
+    title: "Janitorial Training and Workforce Development",
+    blurb:
+      "Professional training for cleaning personnel, covering cleaning procedures, hygiene practices, equipment handling, safety and workplace professionalism.",
+    image: "/images/team-training.jpeg",
+    page: "services",
   },
 ];
 
@@ -213,6 +236,7 @@ export const SERVICE_CATEGORIES = [
   {
     label: "Commercial & Industrial",
     services: [
+      "residential-commercial-cleaning",
       "commercial-corporate-cleaning",
       "office-cleaning",
       "industrial-cleaning",
@@ -230,16 +254,20 @@ export const SERVICE_CATEGORIES = [
       "move-in-move-out-cleaning",
       "carpet-upholstery-cleaning",
       "rug-carpet-cleaning",
+      "special-maintenance-packages",
+      "routine-maintenance-cleaning",
     ],
   },
   {
     label: "Projects, Events & Support",
     services: [
       "post-construction-cleaning",
+      "interlock-exterior-surface-washing",
       "event-cleaning",
       "cleaning-supplies",
       "cleaning-equipment-supply",
       "hygiene-education",
+      "janitorial-training",
     ],
   },
 ] as const;

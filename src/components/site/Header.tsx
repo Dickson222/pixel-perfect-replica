@@ -140,7 +140,7 @@ export function Header() {
           </Link>
 
           <nav
-            className="hidden shrink-0 items-center gap-4 xl:flex 2xl:gap-5"
+            className="hidden shrink-0 items-center gap-3 xl:flex 2xl:gap-5"
             aria-label="Main navigation"
           >
             {NAV_LINKS.slice(0, 2).map((l) => (
@@ -148,7 +148,7 @@ export function Header() {
                 key={l.href}
                 to={l.href}
                 activeOptions={{ exact: true }}
-                className="whitespace-nowrap font-heading text-xs font-semibold uppercase tracking-wide text-brand-navy transition-colors hover:text-brand-azure data-[status=active]:text-brand-azure"
+                className="whitespace-nowrap font-heading text-[0.68rem] font-semibold uppercase tracking-wide text-brand-navy transition-colors hover:text-brand-azure 2xl:text-xs data-[status=active]:text-brand-azure"
               >
                 {l.label}
               </Link>
@@ -159,14 +159,14 @@ export function Header() {
                 key={l.href}
                 to={l.href}
                 activeOptions={{ exact: l.href === "/" }}
-                className="whitespace-nowrap font-heading text-xs font-semibold uppercase tracking-wide text-brand-navy transition-colors hover:text-brand-azure data-[status=active]:text-brand-azure"
+                className="whitespace-nowrap font-heading text-[0.68rem] font-semibold uppercase tracking-wide text-brand-navy transition-colors hover:text-brand-azure 2xl:text-xs data-[status=active]:text-brand-azure"
               >
                 {l.label}
               </Link>
             ))}
             <Link
               to="/request-a-quote"
-              className="whitespace-nowrap rounded-md bg-brand-gold px-3.5 py-2.5 font-heading text-xs font-bold uppercase tracking-wide text-brand-navy shadow-sm transition-colors hover:bg-brand-gold/85"
+              className="whitespace-nowrap rounded-md bg-brand-gold px-2.5 py-2.5 font-heading text-[0.68rem] font-bold uppercase tracking-wide text-brand-navy shadow-sm transition-colors hover:bg-brand-gold/85 2xl:px-3.5 2xl:text-xs"
             >
               Request a Quote
             </Link>
@@ -185,9 +185,9 @@ export function Header() {
       </div>
 
       <div
-        className={`fixed inset-x-0 bottom-0 top-[4.5rem] z-[59] overflow-y-auto border-t border-border bg-white transition-transform md:top-[6.75rem] xl:hidden ${
-          mobileOpen ? "translate-x-0" : "invisible translate-x-full"
-        }`}
+        className={`fixed inset-x-0 bottom-0 z-[59] overflow-y-auto border-t border-border bg-white transition-transform xl:hidden ${
+          scrolled ? "top-[4.5rem]" : "top-[4.5rem] md:top-[6.75rem]"
+        } ${mobileOpen ? "translate-x-0" : "invisible translate-x-full"}`}
       >
         <nav className="container-page flex flex-col gap-1 py-6" aria-label="Mobile navigation">
           {NAV_LINKS.slice(0, 2).map((l) => (
