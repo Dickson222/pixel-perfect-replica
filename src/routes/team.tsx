@@ -2,7 +2,6 @@ import { ArrowRight, CheckCircle2, Users } from "lucide-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero, SectionHeading } from "@/components/site/shared";
-import teamGroup from "@/assets/team-group.jpg.asset.json";
 
 export const Route = createFileRoute("/team")({
   head: () => ({
@@ -25,7 +24,7 @@ function TeamPage() {
         eyebrow="Our Team"
         title="The people behind consistent, professional service delivery"
         intro="Blossom Cleaning Services is built around trained personnel, operational discipline and a strong focus on supervision, service quality and customer satisfaction."
-        image={teamGroup.url}
+        image="/images/team-group-photo.jpeg"
       />
 
       <section className="py-16 md:py-24">

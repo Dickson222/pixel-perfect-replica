@@ -2,7 +2,6 @@ import { ArrowRight, CheckCircle2, House, Sparkles } from "lucide-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero, SectionHeading } from "@/components/site/shared";
-import photoDeepClean from "@/assets/photo-deep-clean.jpg.asset.json";
 
 export const Route = createFileRoute("/residential-cleaning")({
   head: () => ({
@@ -25,7 +24,7 @@ function ResidentialCleaningPage() {
         eyebrow="Residential Cleaning"
         title="Professional care for homes, apartments and residential estates"
         intro="We help homeowners, tenants, landlords and property managers keep homes and residential spaces clean, comfortable and consistently presentable."
-        image={photoDeepClean.url}
+        image="/images/deep-cleaning.jpeg"
       />
 
       <section className="py-16 md:py-24">

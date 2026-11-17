@@ -29,7 +29,6 @@ import { Route as ResidentialCleaningRouteImport } from './routes/residential-cl
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as TeamRouteImport } from './routes/team'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
-import { Route as ApiPublicEnquiriesRouteImport } from './routes/api/public/enquiries'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -133,11 +132,6 @@ const TestimonialsRoute = TestimonialsRouteImport.update({
   path: '/testimonials',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiPublicEnquiriesRoute = ApiPublicEnquiriesRouteImport.update({
-  id: '/api/public/enquiries',
-  path: '/api/public/enquiries',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -160,7 +154,6 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRoute
   '/team': typeof TeamRoute
   '/testimonials': typeof TestimonialsRoute
-  '/api/public/enquiries': typeof ApiPublicEnquiriesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -183,7 +176,6 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRoute
   '/team': typeof TeamRoute
   '/testimonials': typeof TestimonialsRoute
-  '/api/public/enquiries': typeof ApiPublicEnquiriesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -207,7 +199,6 @@ export interface FileRoutesById {
   '/services': typeof ServicesRoute
   '/team': typeof TeamRoute
   '/testimonials': typeof TestimonialsRoute
-  '/api/public/enquiries': typeof ApiPublicEnquiriesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -232,7 +223,6 @@ export interface FileRouteTypes {
     | '/services'
     | '/team'
     | '/testimonials'
-    | '/api/public/enquiries'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -255,7 +245,6 @@ export interface FileRouteTypes {
     | '/services'
     | '/team'
     | '/testimonials'
-    | '/api/public/enquiries'
   id:
     | '__root__'
     | '/'
@@ -278,7 +267,6 @@ export interface FileRouteTypes {
     | '/services'
     | '/team'
     | '/testimonials'
-    | '/api/public/enquiries'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -302,7 +290,6 @@ export interface RootRouteChildren {
   ServicesRoute: typeof ServicesRoute
   TeamRoute: typeof TeamRoute
   TestimonialsRoute: typeof TestimonialsRoute
-  ApiPublicEnquiriesRoute: typeof ApiPublicEnquiriesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -447,13 +434,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TestimonialsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/public/enquiries': {
-      id: '/api/public/enquiries'
-      path: '/api/public/enquiries'
-      fullPath: '/api/public/enquiries'
-      preLoaderRoute: typeof ApiPublicEnquiriesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
@@ -478,7 +458,6 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRoute: ServicesRoute,
   TeamRoute: TeamRoute,
   TestimonialsRoute: TestimonialsRoute,
-  ApiPublicEnquiriesRoute: ApiPublicEnquiriesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

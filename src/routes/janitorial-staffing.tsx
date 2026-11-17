@@ -2,7 +2,6 @@ import { ArrowRight, CheckCircle2, ClipboardList, Users } from "lucide-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero, SectionHeading } from "@/components/site/shared";
-import teamTraining from "@/assets/team-training.jpg.asset.json";
 
 export const Route = createFileRoute("/janitorial-staffing")({
   head: () => ({
@@ -25,7 +24,7 @@ function JanitorialStaffingPage() {
         eyebrow="Janitorial Staffing"
         title="Trained cleaning personnel deployed with structure and supervision"
         intro="We provide janitorial personnel and workforce support to organisations that need consistent day-to-day cleaning coverage and dependable operational oversight."
-        image={teamTraining.url}
+        image="/images/janitorial-staffing.jpeg"
       />
 
       <section className="py-16 md:py-24">

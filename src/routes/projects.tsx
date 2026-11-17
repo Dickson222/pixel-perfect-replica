@@ -1,17 +1,13 @@
-import { ArrowRight, CheckCircle2, Image, Sparkles } from "lucide-react";
+import { ArrowRight, Image } from "lucide-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero, SectionHeading } from "@/components/site/shared";
-import photoDeepClean from "@/assets/photo-deep-clean.jpg.asset.json";
-import photoVacuum from "@/assets/photo-vacuum.jpg.asset.json";
-import photoMoppingLobby from "@/assets/photo-mopping-lobby.jpg.asset.json";
-import photoTvConsole from "@/assets/photo-tv-console.jpg.asset.json";
 
 const projectGallery = [
-  { image: photoMoppingLobby.url, title: "Commercial cleaning support", category: "Commercial Cleaning" },
-  { image: photoDeepClean.url, title: "Residential deep cleaning", category: "Residential Cleaning" },
-  { image: photoVacuum.url, title: "Detailed finishing clean", category: "Post-Construction Cleaning" },
-  { image: photoTvConsole.url, title: "Detail-focused interior maintenance", category: "Deep Cleaning" },
+  { image: "/images/team-mopping-floor.jpeg", title: "Floor cleaning with professional equipment", category: "Commercial Cleaning" },
+  { image: "/images/team-detail-cleaning.jpeg", title: "Detail-focused interior cleaning", category: "Residential Cleaning" },
+  { image: "/images/team-cleaning-vacuum.jpeg", title: "Professional vacuum cleaning", category: "Facility Support" },
+  { image: "/images/team-floor-polishing.jpeg", title: "Professional floor polishing", category: "Floor Care" },
 ];
 
 export const Route = createFileRoute("/projects")({

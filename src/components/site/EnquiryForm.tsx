@@ -114,34 +114,77 @@ export function EnquiryForm({
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
     if (!validate()) return;
+
+    const accessKey = import.meta.env["VITE_WEB3FORMS_ACCESS_KEY"]?.trim();
+    if (!accessKey) {
+      setStatus("failed");
+      setServerError(
+        "The enquiry form is not configured yet. Please contact us by WhatsApp or phone.",
+      );
+      return;
+    }
+
     setStatus("sending");
     setServerError("");
     try {
-      const res = await fetch("/api/public/enquiries", {
+      const enquiryType =
+        kind === "quote"
+          ? "Quote request"
+          : kind === "corporate"
+            ? "Corporate enquiry"
+            : "Contact message";
+      const message = [
+        `Enquiry type: ${enquiryType}`,
+        `Name: ${values.fullName.trim()}`,
+        `Phone: ${values.phone.trim()}`,
+        values.email.trim() ? `Email: ${values.email.trim()}` : "",
+        values.serviceType.trim() ? `Service: ${values.serviceType.trim()}` : "",
+        values.propertyType.trim() ? `Property type: ${values.propertyType.trim()}` : "",
+        values.propertySize.trim() ? `Property size or scope: ${values.propertySize.trim()}` : "",
+        values.personnelCount.trim() ? `Personnel count: ${values.personnelCount.trim()}` : "",
+        values.preferredDate ? `Preferred date: ${values.preferredDate}` : "",
+        values.frequency ? `Frequency: ${values.frequency}` : "",
+        values.organisation.trim() ? `Organisation: ${values.organisation.trim()}` : "",
+        values.address.trim() ? `Facility location: ${values.address.trim()}` : "",
+        values.message.trim() ? `Additional message:\n${values.message.trim()}` : "",
+      ]
+        .filter(Boolean)
+        .join("\n");
+
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
-          kind,
-          fullName: values.fullName.trim(),
+          access_key: accessKey,
+          subject: `${enquiryType} — ${values.fullName.trim()}`,
+          from_name: COMPANY.name,
+          replyto: values.email.trim() || undefined,
+          name: values.fullName.trim(),
           phone: values.phone.trim(),
           email: values.email.trim(),
-          serviceType: values.serviceType.trim(),
-          propertyType: values.propertyType.trim(),
-          propertySize: values.propertySize.trim(),
-          personnelCount: values.personnelCount.trim(),
-          preferredDate: values.preferredDate,
+          enquiry_type: enquiryType,
+          service_type: values.serviceType.trim(),
+          property_type: values.propertyType.trim(),
+          property_size: values.propertySize.trim(),
+          personnel_count: values.personnelCount.trim(),
+          preferred_date: values.preferredDate,
           frequency: values.frequency,
           organisation: values.organisation.trim(),
-          facilityLocation: values.address.trim(),
-          message: values.message.trim(),
+          facility_location: values.address.trim(),
+          message,
         }),
       });
-      const data = (await res.json().catch(() => null)) as { ok?: boolean; error?: string } | null;
-      if (res.ok && data?.ok) {
+      const data = (await res.json().catch(() => null)) as
+        | { success?: boolean; message?: string }
+        | null;
+      if (res.ok && data?.success) {
         setStatus("sent");
       } else {
         setStatus("failed");
-        setServerError(data?.error || "Something went wrong while sending your request. Please try again.");
+        setServerError(
+          data?.message ||
+            "Something went wrong while sending your request. Please try again.",
+        );
       }
     } catch {
       setStatus("failed");

@@ -27,6 +27,7 @@ export type ServiceRef = {
   slug: string;
   title: string;
   blurb: string;
+  image?: string;
 };
 
 /** The nine dedicated service pages. */
@@ -123,6 +124,7 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     title: "Janitorial Staffing & Workforce Management",
     blurb:
       "Dedicated, trained and supervised janitorial personnel deployed to client facilities.",
+    image: "/images/janitorial-staffing.jpeg",
     page: "janitorial-staffing",
   },
   {
@@ -137,6 +139,7 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     title: "Deep Cleaning & Sanitization",
     blurb:
       "Thorough, detail-focused cleaning and sanitization of spaces that need more than routine care.",
+    image: "/images/deep-cleaning.jpeg",
     page: "residential-cleaning",
   },
   {
@@ -155,9 +158,18 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
   },
   {
     slug: "carpet-upholstery-cleaning",
-    title: "Carpet & Upholstery Cleaning",
+    title: "Sofa & Upholstery Cleaning",
     blurb:
-      "Care for carpets, rugs and upholstered furniture in homes and commercial spaces.",
+      "Professional cleaning to remove dirt, stains, odours and allergens from sofas, chairs and upholstered furniture.",
+    image: "/images/sofa-cleaning.jpeg",
+    page: "residential-cleaning",
+  },
+  {
+    slug: "rug-carpet-cleaning",
+    title: "Rug & Carpet Cleaning",
+    blurb:
+      "Professional cleaning solutions that restore freshness, remove dirt and improve carpet and rug hygiene.",
+    image: "/images/rug-and-hosterly-cleaning.jpeg",
     page: "residential-cleaning",
   },
   {
@@ -217,6 +229,7 @@ export const SERVICE_CATEGORIES = [
       "deep-cleaning-sanitization",
       "move-in-move-out-cleaning",
       "carpet-upholstery-cleaning",
+      "rug-carpet-cleaning",
     ],
   },
   {

@@ -22,3 +22,10 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+
+## Enquiry form
+
+Quote requests, corporate enquiries, and contact messages are submitted directly
+to Web3Forms from the browser. Set `VITE_WEB3FORMS_ACCESS_KEY` in your local
+`.env` file and in the environment used for production builds. The project includes
+`.env.example` as a variable-name reference; do not commit your actual `.env` file.

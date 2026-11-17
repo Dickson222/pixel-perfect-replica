@@ -16,7 +16,7 @@ const serviceCategories = [
     label: "Residential",
     icon: Home,
     services: ALL_SERVICES.filter((item) =>
-      ["residential-cleaning", "estate-cleaning", "deep-cleaning-sanitization", "move-in-move-out-cleaning", "carpet-upholstery-cleaning"].includes(item.slug),
+      ["residential-cleaning", "estate-cleaning", "deep-cleaning-sanitization", "move-in-move-out-cleaning", "carpet-upholstery-cleaning", "rug-carpet-cleaning"].includes(item.slug),
     ),
   },
   {
@@ -40,6 +40,7 @@ const serviceIcons: Record<string, typeof Building2> = {
   "deep-cleaning-sanitization": Sparkles,
   "move-in-move-out-cleaning": Home,
   "carpet-upholstery-cleaning": Sparkles,
+  "rug-carpet-cleaning": Sparkles,
   "post-construction-cleaning": Wrench,
   "event-cleaning": Sparkles,
   "cleaning-supplies": Warehouse,
@@ -87,16 +88,25 @@ function ServicesPage() {
                     const ItemIcon = serviceIcons[service.slug] ?? Sparkles;
                     const pageLink = service.page ? `/${service.page}` : "/services";
                     return (
-                      <div key={service.slug} className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-brand-gold-soft">
-                          <ItemIcon className="h-5 w-5 text-brand-navy" />
+                      <div key={service.slug} className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+                        {service.image && (
+                          <img
+                            src={service.image}
+                            alt={`${service.title} service`}
+                            className="h-48 w-full object-cover"
+                          />
+                        )}
+                        <div className="p-6">
+                          <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-brand-gold-soft">
+                            <ItemIcon className="h-5 w-5 text-brand-navy" />
+                          </div>
+                          <h3 className="mt-4 font-heading text-lg font-semibold text-brand-navy">{service.title}</h3>
+                          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{service.blurb}</p>
+                          <Link to={pageLink} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-azure hover:underline">
+                            Learn more
+                            <ArrowRight className="h-4 w-4" />
+                          </Link>
                         </div>
-                        <h3 className="mt-4 font-heading text-lg font-semibold text-brand-navy">{service.title}</h3>
-                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{service.blurb}</p>
-                        <Link to={pageLink} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-azure hover:underline">
-                          Learn more
-                          <ArrowRight className="h-4 w-4" />
-                        </Link>
                       </div>
                     );
                   })}

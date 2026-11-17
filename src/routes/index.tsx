@@ -106,10 +106,23 @@ function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-brand-navy">
         <img
-          src={photoLobby.url}
-          alt="Blossom Cleaning Services team member mopping a commercial lobby floor"
+          src="/images/team-mopping-floor.jpeg"
+          alt=""
+          aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover opacity-30"
         />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/images/team-mopping-floor.jpeg"
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover opacity-35"
+        >
+          <source src="/videos/cleaning-promo.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/90 to-brand-navy/50" />
         <div className="container-page relative py-20 md:py-32">
           <p className="eyebrow fade-up text-brand-gold">
@@ -226,7 +239,7 @@ function Home() {
       <section className="py-16 md:py-24">
         <div className="container-page grid items-center gap-10 lg:grid-cols-2">
           <img
-            src={photoLobby.url}
+            src="/images/team-floor-polishing.jpeg"
             alt="Professional cleaning of a corporate lobby in Lagos"
             className="h-80 w-full rounded-xl object-cover shadow-lg lg:h-[26rem]"
           />
@@ -325,6 +338,23 @@ function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Cleaning in action */}
+      <section className="relative overflow-hidden bg-brand-navy">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/images/team-floor-polishing.jpeg"
+          aria-label="Blossom Cleaning Services team at work"
+          className="h-64 w-full object-cover sm:h-80 lg:h-[30rem]"
+        >
+          <source src="/videos/cleaning-promo.mp4" type="video/mp4" />
+        </video>
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-navy/35 to-transparent" />
       </section>
 
       {/* Why choose */}
@@ -433,10 +463,10 @@ function Home() {
           </div>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { src: photoLobby.url, alt: "Lobby mopping during a commercial cleaning operation", label: "Commercial Cleaning" },
-              { src: photoDeepClean.url, alt: "Deep cleaning of a residential living room", label: "Deep Cleaning" },
-              { src: photoVacuum.url, alt: "Vacuum cleaning of office flooring", label: "Office Cleaning" },
-              { src: photoTvConsole.url, alt: "Detailed cleaning of home shelving and console", label: "Residential Detail Cleaning" },
+              { src: "/images/team-mopping-floor.jpeg", alt: "Blossom cleaner mopping a polished commercial floor", label: "Commercial Cleaning" },
+              { src: "/images/team-detail-cleaning.jpeg", alt: "Blossom cleaner carefully detailing an interior surface", label: "Detail Cleaning" },
+              { src: "/images/team-cleaning-vacuum.jpeg", alt: "Blossom cleaner using professional vacuum equipment", label: "Equipment Cleaning" },
+              { src: "/images/team-floor-polishing.jpeg", alt: "Blossom cleaner operating professional floor-polishing equipment", label: "Floor Care" },
             ].map((p) => (
               <Link key={p.src} to="/projects" className="group overflow-hidden rounded-xl shadow-sm">
                 <div className="aspect-[4/3] overflow-hidden">
@@ -483,8 +513,8 @@ function Home() {
             </ul>
           </div>
           <img
-            src={teamGroup.url}
-            alt="Blossom Cleaning Services team members standing together"
+            src="/images/team-training-session.jpeg"
+            alt="Blossom Cleaning Services team members in a training session"
             className="h-72 w-full rounded-xl object-cover shadow-lg lg:h-96"
           />
         </div>
