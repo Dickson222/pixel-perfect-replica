@@ -21,29 +21,33 @@ export function SiteLayout({ children }: { children: ReactNode }) {
     const cards = document.querySelectorAll<HTMLElement>("main .service-card");
     if (sections.length === 0 && cards.length === 0) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: "0px 0px -32px 0px" },
-    );
+    const createRevealObserver = (threshold: number) =>
+      new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold, rootMargin: "0px 0px -32px 0px" },
+      );
+    const sectionObserver = createRevealObserver(0);
+    const cardObserver = createRevealObserver(0.1);
 
     sections.forEach((section) => {
       section.classList.add("scroll-reveal");
-      observer.observe(section);
+      sectionObserver.observe(section);
     });
     cards.forEach((card) => {
       card.classList.add("service-card-reveal");
-      observer.observe(card);
+      cardObserver.observe(card);
     });
 
     return () => {
-      observer.disconnect();
+      sectionObserver.disconnect();
+      cardObserver.disconnect();
       sections.forEach((section) => {
         section.classList.remove("scroll-reveal", "is-visible");
       });
