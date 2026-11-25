@@ -99,12 +99,13 @@ function ServicesPage() {
                   <SectionHeading eyebrow="Service category" title={category.label} />
                 </div>
                 <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-                  {category.services.map((service) => {
+                  {category.services.map((service, index) => {
                     const pageLink = service.page ? `/${service.page}` : "/services";
                     return (
                       <div
                         key={service.slug}
                         className="service-card rounded-2xl border border-border bg-card shadow-sm"
+                        data-reveal-order={index % 3}
                       >
                         {service.image && (
                           <div className="aspect-[4/3] rounded-t-2xl bg-muted/50 p-3 sm:p-4">

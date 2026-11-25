@@ -88,6 +88,7 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     title: "Residential and Commercial Cleaning Services",
     blurb:
       "Professional cleaning for homes, apartments, offices and commercial premises, with the scope and schedule tailored to each property's requirements.",
+    image: "/images/photo-deep-clean.jpg",
     page: "residential-cleaning",
   },
   {
@@ -95,6 +96,7 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     title: "Commercial & Corporate Cleaning",
     blurb:
       "Day-to-day and periodic cleaning for corporate offices, commercial buildings and business facilities.",
+    image: "/images/cleaner-vacuuming.jpeg",
     page: "corporate-cleaning",
   },
   {
@@ -102,18 +104,21 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     title: "Office Cleaning",
     blurb:
       "Workspaces, meeting rooms, reception areas and common areas kept clean, tidy and presentable.",
+    image: "/images/cleaner-mopping.jpeg",
     page: "corporate-cleaning",
   },
   {
     slug: "residential-cleaning",
     title: "Residential Cleaning",
     blurb: "Homes, apartments and residential estates cleaned to a professional standard.",
+    image: "/images/detail-cleaning.jpeg",
     page: "residential-cleaning",
   },
   {
     slug: "estate-cleaning",
     title: "Estate Cleaning",
     blurb: "Cleaning services for residential estates, shared spaces and property developments.",
+    image: "/images/image.png",
     page: "residential-cleaning",
   },
   {
@@ -121,6 +126,7 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     title: "Industrial Cleaning",
     blurb:
       "Cleaning support for industrial and operational environments, delivered with structured supervision.",
+    image: "/images/man.jpeg",
     page: "industrial-facility-support",
   },
   {
@@ -136,6 +142,7 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     title: "Facility Support Services",
     blurb:
       "Operational support that keeps facilities running smoothly alongside their cleaning programme.",
+    image: "/images/cleaner-equipment.jpeg",
     page: "industrial-facility-support",
   },
   {
@@ -158,6 +165,7 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     slug: "move-in-move-out-cleaning",
     title: "Move-In / Move-Out Cleaning",
     blurb: "Fresh starts for new occupants and spotless handovers when tenants or owners move out.",
+    image: "/images/photo-tv-console.webp",
     page: "residential-cleaning",
   },
   {
@@ -189,6 +197,7 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     title: "Routine Maintenance Cleaning",
     blurb:
       "Scheduled daily, weekly or custom-frequency cleaning that keeps spaces consistently presentable.",
+    image: "/images/cleaning-professional-portrait.png",
     page: "corporate-cleaning",
   },
   {
@@ -196,11 +205,13 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     title: "Interlock and Exterior Surface Washing",
     blurb:
       "Exterior washing for interlock paving and other hard outdoor surfaces to remove surface dirt and improve cleanliness.",
+    image: "/images/team-group-photo.jpeg",
   },
   {
     slug: "event-cleaning",
     title: "Event & Exhibition Cleaning",
     blurb: "Pre-event, during-event and post-event cleaning for venues, exhibitions and events.",
+    image: "/images/team-training-session.jpeg",
     page: "event-cleaning",
   },
   {
@@ -215,6 +226,7 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     title: "Cleaning Equipment Supply",
     blurb:
       "Supply of professional cleaning equipment to support in-house and outsourced operations.",
+    image: "/images/team-training-upload.jpeg",
     page: "cleaning-supplies",
   },
   {
@@ -222,6 +234,7 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     title: "Environmental Hygiene Education, Awareness Campaigns, and Sanitation Advocacy",
     blurb:
       "Environmental hygiene education, awareness campaigns and sanitation advocacy for organisations and communities.",
+    image: "/images/team-group.jpeg",
     page: "hygiene-education",
   },
   {

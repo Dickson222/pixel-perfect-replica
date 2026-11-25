@@ -2,6 +2,7 @@ import { QueryClient } from "@tanstack/react-query";
 import { createRouter, rootRouteId } from "@tanstack/react-router";
 import { describe, expect, it } from "vitest";
 
+import { ALL_SERVICES } from "@/lib/site";
 import { routeTree } from "@/routeTree.gen";
 
 // Match routes without running loaders or rendering: loaders may need a server or
@@ -21,5 +22,12 @@ describe("App routing", () => {
     const matches = router.matchRoutes("/services");
 
     expect(matches.at(-1)?.routeId).toBe("/services");
+  });
+
+  it("uses a unique image for every service", () => {
+    const images = ALL_SERVICES.map((service) => service.image);
+
+    expect(images.every(Boolean)).toBe(true);
+    expect(new Set(images).size).toBe(ALL_SERVICES.length);
   });
 });
