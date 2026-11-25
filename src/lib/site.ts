@@ -88,7 +88,7 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     title: "Residential and Commercial Cleaning Services",
     blurb:
       "Professional cleaning for homes, apartments, offices and commercial premises, with the scope and schedule tailored to each property's requirements.",
-    image: "/images/photo-deep-clean.jpg",
+    image: "/images/images/Residential%20and%20Commercial%20Cleaning%20Services.png",
     page: "residential-cleaning",
   },
   {
@@ -96,7 +96,7 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     title: "Commercial & Corporate Cleaning",
     blurb:
       "Day-to-day and periodic cleaning for corporate offices, commercial buildings and business facilities.",
-    image: "/images/cleaner-vacuuming.jpeg",
+    image: "/images/images/Commercial%20&%20Corporate%20Cleaning.png",
     page: "corporate-cleaning",
   },
   {
@@ -104,21 +104,21 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     title: "Office Cleaning",
     blurb:
       "Workspaces, meeting rooms, reception areas and common areas kept clean, tidy and presentable.",
-    image: "/images/cleaner-mopping.jpeg",
+    image: "/images/images/Office%20Cleaning.png",
     page: "corporate-cleaning",
   },
   {
     slug: "residential-cleaning",
     title: "Residential Cleaning",
     blurb: "Homes, apartments and residential estates cleaned to a professional standard.",
-    image: "/images/detail-cleaning.jpeg",
+    image: "/images/images/Residential%20Cleaning.png",
     page: "residential-cleaning",
   },
   {
     slug: "estate-cleaning",
     title: "Estate Cleaning",
     blurb: "Cleaning services for residential estates, shared spaces and property developments.",
-    image: "/images/image.png",
+    image: "/images/images/Estate%20Cleaning.png",
     page: "residential-cleaning",
   },
   {
@@ -126,7 +126,7 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     title: "Industrial Cleaning",
     blurb:
       "Cleaning support for industrial and operational environments, delivered with structured supervision.",
-    image: "/images/man.jpeg",
+    image: "/images/images/Industrial%20Cleaning.png",
     page: "industrial-facility-support",
   },
   {
@@ -142,7 +142,7 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     title: "Facility Support Services",
     blurb:
       "Operational support that keeps facilities running smoothly alongside their cleaning programme.",
-    image: "/images/cleaner-equipment.jpeg",
+    image: "/images/images/Facility%20Support%20Services.png",
     page: "industrial-facility-support",
   },
   {
@@ -165,7 +165,7 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     slug: "move-in-move-out-cleaning",
     title: "Move-In / Move-Out Cleaning",
     blurb: "Fresh starts for new occupants and spotless handovers when tenants or owners move out.",
-    image: "/images/photo-tv-console.webp",
+    image: "/images/images/Move-In%20%20Move%20Out%20Cleaning.png",
     page: "residential-cleaning",
   },
   {
@@ -197,7 +197,7 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     title: "Routine Maintenance Cleaning",
     blurb:
       "Scheduled daily, weekly or custom-frequency cleaning that keeps spaces consistently presentable.",
-    image: "/images/cleaning-professional-portrait.png",
+    image: "/images/images/Routine%20Maintenance%20Cleaning.png",
     page: "corporate-cleaning",
   },
   {
@@ -205,13 +205,13 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     title: "Interlock and Exterior Surface Washing",
     blurb:
       "Exterior washing for interlock paving and other hard outdoor surfaces to remove surface dirt and improve cleanliness.",
-    image: "/images/team-group-photo.jpeg",
+    image: "/images/images/Interlock%20and%20Exterior%20Surface%20Washing.png",
   },
   {
     slug: "event-cleaning",
     title: "Event & Exhibition Cleaning",
     blurb: "Pre-event, during-event and post-event cleaning for venues, exhibitions and events.",
-    image: "/images/team-training-session.jpeg",
+    image: "/images/images/Event%20&%20Exhibition%20Cleaning.png",
     page: "event-cleaning",
   },
   {
@@ -226,7 +226,7 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     title: "Cleaning Equipment Supply",
     blurb:
       "Supply of professional cleaning equipment to support in-house and outsourced operations.",
-    image: "/images/team-training-upload.jpeg",
+    image: "/images/images/Cleaning%20Equipment%20Supply.png",
     page: "cleaning-supplies",
   },
   {
@@ -234,7 +234,6 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     title: "Environmental Hygiene Education, Awareness Campaigns, and Sanitation Advocacy",
     blurb:
       "Environmental hygiene education, awareness campaigns and sanitation advocacy for organisations and communities.",
-    image: "/images/team-group.jpeg",
     page: "hygiene-education",
   },
   {
