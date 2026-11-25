@@ -74,7 +74,7 @@ export function PageHero({
   image?: string;
 }) {
   return (
-    <section className="relative overflow-hidden bg-brand-navy">
+    <section className="relative overflow-hidden bg-brand-navy" data-scroll-reveal="skip">
       {image && (
         <>
           <img

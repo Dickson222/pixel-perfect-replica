@@ -1,69 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
-import { ChevronDown, Menu, Phone, Mail, MapPin, X } from "lucide-react";
-import { COMPANY, NAV_LINKS, SERVICE_PAGES } from "@/lib/site";
-
-function ServicesDropdown() {
-  const [open, setOpen] = useState(false);
-  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const location = useLocation();
-  const active = SERVICE_PAGES.some((s) => location.pathname === `/${s.slug}`);
-
-  const enter = () => {
-    if (timer.current) clearTimeout(timer.current);
-    setOpen(true);
-  };
-  const leave = () => {
-    timer.current = setTimeout(() => setOpen(false), 120);
-  };
-
-  return (
-    <div
-      className="relative"
-      onMouseEnter={enter}
-      onMouseLeave={leave}
-      onFocus={() => setOpen(true)}
-      onBlur={(e) => {
-        if (!e.currentTarget.contains(e.relatedTarget as Node)) setOpen(false);
-      }}
-    >
-      <button
-        type="button"
-        aria-expanded={open}
-        onClick={() => setOpen((v) => !v)}
-        className={`flex shrink-0 items-center gap-1 whitespace-nowrap font-heading text-xs font-semibold uppercase tracking-wide transition-colors hover:text-brand-azure ${
-          active ? "text-brand-azure" : "text-brand-navy"
-        }`}
-      >
-        Services
-        <ChevronDown className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`} />
-      </button>
-      <div
-        className={`absolute left-1/2 top-full z-50 w-[26rem] max-w-[calc(100vw-2rem)] -translate-x-1/2 pt-3 transition-opacity ${
-          open ? "opacity-100" : "pointer-events-none opacity-0"
-        }`}
-      >
-        <div className="grid grid-cols-2 gap-1 rounded-xl border border-border bg-popover p-2 shadow-xl shadow-brand-navy/10">
-          {SERVICE_PAGES.map((s) => (
-            <Link
-              key={s.slug}
-              to={`/${s.slug}`}
-              onClick={() => setOpen(false)}
-              className="rounded-lg px-3 py-2.5 text-sm font-medium text-brand-navy transition-colors hover:bg-accent hover:text-brand-navy"
-            >
-              {s.title}
-            </Link>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
+import { Menu, Phone, Mail, MapPin, X } from "lucide-react";
+import { COMPANY, NAV_LINKS } from "@/lib/site";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -75,7 +17,6 @@ export function Header() {
 
   useEffect(() => {
     setMobileOpen(false);
-    setMobileServicesOpen(false);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -148,18 +89,24 @@ export function Header() {
                 key={l.href}
                 to={l.href}
                 activeOptions={{ exact: true }}
-                className="whitespace-nowrap font-heading text-[0.68rem] font-semibold uppercase tracking-wide text-brand-navy transition-colors hover:text-brand-azure 2xl:text-xs data-[status=active]:text-brand-azure"
+                className="nav-link whitespace-nowrap font-heading text-[0.68rem] font-semibold uppercase tracking-wide text-brand-navy transition-colors hover:text-brand-azure 2xl:text-xs data-[status=active]:text-brand-azure"
               >
                 {l.label}
               </Link>
             ))}
-            <ServicesDropdown />
+            <Link
+              to="/services"
+              activeOptions={{ exact: true }}
+              className="nav-link whitespace-nowrap font-heading text-[0.68rem] font-semibold uppercase tracking-wide text-brand-navy transition-colors hover:text-brand-azure 2xl:text-xs data-[status=active]:text-brand-azure"
+            >
+              Services
+            </Link>
             {NAV_LINKS.slice(2).map((l) => (
               <Link
                 key={l.href}
                 to={l.href}
                 activeOptions={{ exact: l.href === "/" }}
-                className="whitespace-nowrap font-heading text-[0.68rem] font-semibold uppercase tracking-wide text-brand-navy transition-colors hover:text-brand-azure 2xl:text-xs data-[status=active]:text-brand-azure"
+                className="nav-link whitespace-nowrap font-heading text-[0.68rem] font-semibold uppercase tracking-wide text-brand-navy transition-colors hover:text-brand-azure 2xl:text-xs data-[status=active]:text-brand-azure"
               >
                 {l.label}
               </Link>
@@ -199,36 +146,13 @@ export function Header() {
               {l.label}
             </Link>
           ))}
-          <button
-            type="button"
-            aria-expanded={mobileServicesOpen}
-            onClick={() => setMobileServicesOpen((v) => !v)}
-            className="flex items-center justify-between rounded-lg px-3 py-3 font-heading text-base font-semibold text-brand-navy hover:bg-accent"
+          <Link
+            to="/services"
+            activeOptions={{ exact: true }}
+            className="rounded-lg px-3 py-3 font-heading text-base font-semibold text-brand-navy transition-colors hover:bg-accent data-[status=active]:bg-brand-azure-soft data-[status=active]:text-brand-azure"
           >
             Services
-            <ChevronDown
-              className={`h-4 w-4 transition-transform ${mobileServicesOpen ? "rotate-180" : ""}`}
-            />
-          </button>
-          {mobileServicesOpen && (
-            <div className="ml-3 flex flex-col border-l-2 border-brand-azure/40 pl-3">
-              {SERVICE_PAGES.map((s) => (
-                <Link
-                  key={s.slug}
-                  to={`/${s.slug}`}
-                  className="rounded-lg px-3 py-2.5 text-sm font-medium text-brand-navy/85 hover:bg-accent"
-                >
-                  {s.title}
-                </Link>
-              ))}
-              <Link
-                to="/services"
-                className="rounded-lg px-3 py-2.5 text-sm font-semibold text-brand-azure hover:bg-accent"
-              >
-                View all services
-              </Link>
-            </div>
-          )}
+          </Link>
           {NAV_LINKS.slice(2).map((l) => (
             <Link
               key={l.href}

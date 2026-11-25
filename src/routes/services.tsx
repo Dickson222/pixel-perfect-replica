@@ -1,13 +1,9 @@
 import {
   ArrowRight,
   Building2,
-  Factory,
   GraduationCap,
   Home,
   Sparkles,
-  Users,
-  Wrench,
-  Warehouse,
 } from "lucide-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
@@ -67,30 +63,6 @@ const serviceCategories = [
   },
 ];
 
-const serviceIcons: Record<string, typeof Building2> = {
-  "residential-commercial-cleaning": Building2,
-  "commercial-corporate-cleaning": Building2,
-  "office-cleaning": Building2,
-  "industrial-cleaning": Factory,
-  "janitorial-staffing": Users,
-  "janitorial-training": Users,
-  "facility-support": Warehouse,
-  "special-maintenance-packages": Wrench,
-  "routine-maintenance-cleaning": Wrench,
-  "residential-cleaning": Home,
-  "estate-cleaning": Home,
-  "deep-cleaning-sanitization": Sparkles,
-  "move-in-move-out-cleaning": Home,
-  "carpet-upholstery-cleaning": Sparkles,
-  "rug-carpet-cleaning": Sparkles,
-  "post-construction-cleaning": Wrench,
-  "interlock-exterior-surface-washing": Wrench,
-  "event-cleaning": Sparkles,
-  "cleaning-supplies": Warehouse,
-  "cleaning-equipment-supply": Wrench,
-  "hygiene-education": Users,
-};
-
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
@@ -128,24 +100,24 @@ function ServicesPage() {
                 </div>
                 <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
                   {category.services.map((service) => {
-                    const ItemIcon = serviceIcons[service.slug] ?? Sparkles;
                     const pageLink = service.page ? `/${service.page}` : "/services";
                     return (
                       <div
                         key={service.slug}
-                        className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm"
+                        className="service-card rounded-2xl border border-border bg-card shadow-sm"
                       >
                         {service.image && (
-                          <img
-                            src={service.image}
-                            alt={`${service.title} service`}
-                            className="h-48 w-full object-cover"
-                          />
+                          <div className="aspect-[4/3] rounded-t-2xl bg-muted/50 p-3 sm:p-4">
+                            <img
+                              src={service.image}
+                              alt={`${service.title} service`}
+                              loading="lazy"
+                              decoding="async"
+                              className="h-full w-full object-contain"
+                            />
+                          </div>
                         )}
                         <div className="p-6">
-                          <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-brand-gold-soft">
-                            <ItemIcon className="h-5 w-5 text-brand-navy" />
-                          </div>
                           <h3 className="mt-4 font-heading text-lg font-semibold text-brand-navy">
                             {service.title}
                           </h3>

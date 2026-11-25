@@ -107,7 +107,10 @@ function Home() {
   return (
     <SiteLayout>
       {/* Hero */}
-      <section className="relative min-h-[34rem] overflow-hidden bg-brand-navy md:min-h-[42rem]">
+      <section
+        className="relative min-h-[34rem] overflow-hidden bg-brand-navy md:min-h-[42rem]"
+        data-scroll-reveal="skip"
+      >
         <video
           className="absolute inset-0 z-0 h-full w-full scale-125 object-cover"
           autoPlay

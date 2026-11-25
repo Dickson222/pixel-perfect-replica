@@ -151,6 +151,7 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     title: "Post-Construction and Post-Renovation Cleaning Services",
     blurb:
       "Removal of construction dust and debris, and detailed finishing cleaning for completed projects.",
+    image: "/images/post-construction-cleaning.jpeg",
     page: "post-construction-cleaning",
   },
   {
@@ -180,7 +181,7 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     title: "Weekly / Monthly Maintenance Cleaning Services",
     blurb:
       "Standard, Premium and Executive maintenance packages are available weekly or monthly. Contact us to discuss your requirements.",
-    image: "/images/cleaner-mopping.jpeg",
+    image: "/images/maintenance-cleaning.jpg",
     page: "corporate-cleaning",
   },
   {
@@ -206,6 +207,7 @@ export const ALL_SERVICES: (ServiceRef & { page?: string })[] = [
     slug: "cleaning-supplies",
     title: "Cleaning Chemicals & Consumables Supply",
     blurb: "Supply of professional cleaning chemicals and consumables for homes and businesses.",
+    image: "/images/cleaning-agents.jpg",
     page: "cleaning-supplies",
   },
   {
