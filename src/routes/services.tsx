@@ -1,13 +1,16 @@
-import {
-  ArrowRight,
-  Building2,
-  GraduationCap,
-  Home,
-  Sparkles,
-} from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, Building2, CalendarCheck, GraduationCap, Home, Sparkles } from "lucide-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero, SectionHeading } from "@/components/site/shared";
+import { EnquiryForm } from "@/components/site/EnquiryForm";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { ALL_SERVICES } from "@/lib/site";
 
 const serviceCategories = [
@@ -78,6 +81,10 @@ export const Route = createFileRoute("/services")({
 });
 
 function ServicesPage() {
+  const [selectedService, setSelectedService] = useState<(typeof ALL_SERVICES)[number] | null>(
+    null,
+  );
+
   return (
     <SiteLayout>
       <PageHero
@@ -125,13 +132,23 @@ function ServicesPage() {
                           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                             {service.blurb}
                           </p>
-                          <Link
-                            to={pageLink}
-                            className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-azure hover:underline"
-                          >
-                            Learn more
-                            <ArrowRight className="h-4 w-4" />
-                          </Link>
+                          <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
+                            <button
+                              type="button"
+                              onClick={() => setSelectedService(service)}
+                              className="inline-flex items-center gap-2 rounded-md bg-brand-gold px-4 py-2.5 text-sm font-semibold text-brand-navy transition-colors hover:bg-brand-gold/85"
+                            >
+                              <CalendarCheck className="h-4 w-4" />
+                              Book this service
+                            </button>
+                            <Link
+                              to={pageLink}
+                              className="inline-flex items-center gap-2 text-sm font-semibold text-brand-azure hover:underline"
+                            >
+                              Learn more
+                              <ArrowRight className="h-4 w-4" />
+                            </Link>
+                          </div>
                         </div>
                       </div>
                     );
@@ -142,6 +159,32 @@ function ServicesPage() {
           })}
         </div>
       </section>
+      <Dialog
+        open={selectedService !== null}
+        onOpenChange={(open) => {
+          if (!open) setSelectedService(null);
+        }}
+      >
+        {selectedService && (
+          <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-3xl">
+            <DialogHeader className="pr-8">
+              <DialogTitle className="font-display text-2xl font-bold text-brand-navy">
+                Book {selectedService.title}
+              </DialogTitle>
+              <DialogDescription>
+                Send us your details and preferred date. Our team will contact you to confirm
+                availability and arrangements.
+              </DialogDescription>
+            </DialogHeader>
+            <EnquiryForm
+              key={selectedService.slug}
+              kind="booking"
+              defaultService={selectedService.title}
+              fixedService
+            />
+          </DialogContent>
+        )}
+      </Dialog>
     </SiteLayout>
   );
 }

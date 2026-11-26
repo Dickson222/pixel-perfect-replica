@@ -44,7 +44,7 @@ const PROPERTY_TYPES = [
 
 const FREQUENCIES = ["One-time", "Daily", "Weekly", "Monthly", "Custom arrangement"];
 
-type Kind = "quote" | "corporate" | "contact";
+type Kind = "quote" | "booking" | "corporate" | "contact";
 
 type Values = {
   fullName: string;
@@ -80,10 +80,12 @@ export function EnquiryForm({
   kind,
   defaultService = "",
   compact = false,
+  fixedService = false,
 }: {
   kind: Kind;
   defaultService?: string;
   compact?: boolean;
+  fixedService?: boolean;
 }) {
   const [values, setValues] = useState<Values>({ ...EMPTY, serviceType: defaultService });
   const [errors, setErrors] = useState<Partial<Record<keyof Values, string>>>({});
@@ -103,7 +105,8 @@ export function EnquiryForm({
     if (values.phone.trim().length < 7) er.phone = "Please enter a valid phone number.";
     if (kind !== "contact" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim()))
       er.email = "Please enter a valid email address.";
-    if (kind === "quote" && !values.serviceType) er.serviceType = "Please select a service.";
+    if ((kind === "quote" || kind === "booking") && !values.serviceType)
+      er.serviceType = "Please select a service.";
     if (kind === "corporate" && values.organisation.trim().length < 2)
       er.organisation = "Please enter your organisation's name.";
     if (kind === "contact" && values.message.trim().length < 5)
@@ -129,11 +132,13 @@ export function EnquiryForm({
     setServerError("");
     try {
       const enquiryType =
-        kind === "quote"
-          ? "Quote request"
-          : kind === "corporate"
-            ? "Corporate enquiry"
-            : "Contact message";
+        kind === "booking"
+          ? "Booking request"
+          : kind === "quote"
+            ? "Quote request"
+            : kind === "corporate"
+              ? "Corporate enquiry"
+              : "Contact message";
       const message = [
         `Enquiry type: ${enquiryType}`,
         `Name: ${values.fullName.trim()}`,
@@ -203,7 +208,9 @@ export function EnquiryForm({
         <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
           Thank you, {values.fullName.split(" ")[0]}. Your request has been submitted successfully
           and our team will contact you to discuss your requirements and confirm arrangements.
-          Please note that a quotation request is not a confirmed booking.
+          {kind === "booking" &&
+            " This is a booking request, not a confirmed booking; our team will confirm availability and arrangements with you."}
+          {kind === "quote" && " Please note that a quotation request is not a confirmed booking."}
         </p>
         <p className="mt-4 text-sm text-muted-foreground">
           Need a faster response?{" "}
@@ -263,21 +270,25 @@ export function EnquiryForm({
           />
         </Field>
 
-        {kind === "quote" && (
+        {(kind === "quote" || kind === "booking") && (
           <>
             <Field label="Type of cleaning service required" required error={errors.serviceType}>
-              <select
-                className={inputClass}
-                value={values.serviceType}
-                onChange={set("serviceType")}
-              >
-                <option value="">Select a service…</option>
-                {serviceOptions.map((t) => (
-                  <option key={t} value={t}>
-                    {t}
-                  </option>
-                ))}
-              </select>
+              {fixedService ? (
+                <input className={inputClass} value={values.serviceType} readOnly />
+              ) : (
+                <select
+                  className={inputClass}
+                  value={values.serviceType}
+                  onChange={set("serviceType")}
+                >
+                  <option value="">Select a service…</option>
+                  {serviceOptions.map((t) => (
+                    <option key={t} value={t}>
+                      {t}
+                    </option>
+                  ))}
+                </select>
+              )}
             </Field>
             <Field label="Property type">
               <select
@@ -389,7 +400,7 @@ export function EnquiryForm({
           label={
             kind === "corporate"
               ? "Additional requirements or instructions"
-              : kind === "quote"
+              : kind === "quote" || kind === "booking"
                 ? "Additional requirements or instructions"
                 : "Your message"
           }
@@ -433,6 +444,8 @@ export function EnquiryForm({
                 ? "Submit Corporate Enquiry"
                 : kind === "contact"
                   ? "Send Message"
+                  : kind === "booking"
+                    ? "Submit Booking Request"
                   : "Submit Request"}
             </>
           )}
@@ -448,9 +461,11 @@ export function EnquiryForm({
         </a>
       </div>
       <p className="text-xs leading-relaxed text-muted-foreground">
-        Submitting this form sends your request to {COMPANY.name} for review. We will contact you to
-        discuss requirements and confirm arrangements. A quotation request is not a confirmed
-        booking.
+        {kind === "booking"
+          ? `Submitting sends your booking request to ${COMPANY.name}. Our team will contact you to confirm availability and arrangements; your booking is not confirmed until we do.`
+          : kind === "quote"
+            ? `Submitting this form sends your request to ${COMPANY.name} for review. We will contact you to discuss requirements and confirm arrangements. A quotation request is not a confirmed booking.`
+            : `Submitting this form sends your message to ${COMPANY.name}. Our team will contact you to discuss your requirements.`}
       </p>
     </form>
   );
